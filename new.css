@@ -1,0 +1,237 @@
+/* ===== Page / app styles (header moved to header.css) ===== */
+
+/* Hero Section Styles */
+.hero h1 {
+    font-size: 48px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Products Section Styles */
+.products {
+    padding: 20px;
+    text-align: center;
+}
+
+.products h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.product-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1px;
+    margin-bottom: 20px;
+}
+
+.product-categories button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px; /* Adjust the value as needed for the desired roundness */
+}
+
+.product-categories button:hover {
+    background-color: #ff6600;
+    border-radius: 15px; /* Ensure the hover state also has rounded corners */
+}
+
+.product-list {
+  
+    flex-wrap: wrap;
+    justify-content: center;
+      display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: 270px;   /* keeps images equal height */
+  object-fit: contain;
+}
+
+.product-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.product-item.show {
+    opacity: 1;
+    transform: scale(1);
+    display: block; /* Ensure items are block-level elements */
+}
+
+.product-item.hide {
+    display: none;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+
+
+@media (max-width: 768px) {
+
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 50px 10px;
+    }
+
+    .product-categories button {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+
+
+    .product-item h3, .product-item p {
+        font-size: 14px;
+    }
+
+    .product-item button {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}
+
+/* Nav/menu responsive behaviours moved to header.css */
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Filtering animations */
+
+
+
+
+
+
+/* Additional styles for the buttons */
+.product-categories button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.product-categories button:hover {
+    background-color: #ff6600;
+    transform: translateY(-2px);
+}
+/* Button Hover Effects */
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ff6600;
+    transform: translateY(-2px);
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+  }
+  footer{
+      background-color: rgb(255, 255, 255);
+  }
+ 
+  body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f0f0f0;
+  }
+     .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-float img {
+    width: 200px;
+    height: auto;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+@media (max-width: 1024px) {
+    .whatsapp-float img {
+        width: 150px; /* Reduce size for tablets */
+    }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+    .whatsapp-float img {
+        width: 100px; /* Smaller size for mobile devices */
+    }
+}
+
+/* Extra small screens (very small phones) */
+@media (max-width: 480px) {
+    .whatsapp-float img {
+        width: 80px; /* Even smaller size for very small screens */
+    }
+}
