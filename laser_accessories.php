@@ -1,3 +1,6 @@
+<?php
+include("includes/header.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +24,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About HSG</title>
+        <link rel="stylesheet" href="header.css">
+ 
+     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,9 +59,8 @@
 
         /* Main Content Container */
         .page-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 1361px;
+ 
         }
 
         /* --- Hero Video Section (Keep as is for functionality) --- */
@@ -343,7 +348,8 @@
         </section>
 
         <?php 
-include 'includes/ContactForm.php';?>
+include 'includes/ContactForm.php';
+include 'includes/footer.php';?>
     </div>
 
     <script>

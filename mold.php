@@ -1,3 +1,6 @@
+<?php
+include("includes/header.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +29,7 @@
     <title>Laser Cutting</title>
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
@@ -393,7 +397,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
        
    <?php 
-include 'includes/ContactForm.php';?>
+include 'includes/ContactForm.php';
+include 'includes/footer.php';
+?>
     <!-- <section class="quote">
         <form id="request-quote" class="quote-form" action="submit_quote.php" method="post">
             <h2 class="form-title">Request A Quote</h2>
