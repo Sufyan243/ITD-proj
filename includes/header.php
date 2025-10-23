@@ -14,11 +14,11 @@
         <li class="has-submenu">
           <a href="#products">Products</a>
           <ul class="submenu">
-            <li><a href="lasercutting.html">Laser Cutting Machines</a></li>
-            <li><a href="cncmachine.html">CNC Machining & Turning Centers</a></li>
-            <li><a href="injectionmoulding.html">Injection Moulding Machines</a></li>
-            <li><a href="laser_accessories.html">Laser Cutting Accessories</a></li>
-            <li><a href="mold.html">Mold Bases</a></li>
+            <li><a href="lasercutting.php">Laser Cutting Machines</a></li>
+            <li><a href="cncmachine.php">CNC Machining & Turning Centers</a></li>
+            <li><a href="injectionmoulding.php">Injection Moulding Machines</a></li>
+            <li><a href="laser_accessories.php">Laser Cutting Accessories</a></li>
+            <li><a href="mold.php">Mold Bases</a></li>
           </ul>
         </li>
       </ul>
@@ -47,11 +47,11 @@
         <li class="has-submenu">
           <button class="submenu-toggle" aria-expanded="false">Products</button>
           <ul class="mobile-submenu">
-            <li><a href="lasercutting.html">Laser Cutting Machines</a></li>
-            <li><a href="cncmachine.html">CNC Machining & Turning Centers</a></li>
-            <li><a href="injectionmoulding.html">Injection Moulding Machines</a></li>
-            <li><a href="laser_accessories.html">Laser Cutting Accessories</a></li>
-            <li><a href="mold.html">Mold Bases</a></li>
+            <li><a href="lasercutting.php">Laser Cutting Machines</a></li>
+            <li><a href="cncmachine.php">CNC Machining & Turning Centers</a></li>
+            <li><a href="injectionmoulding.php">Injection Moulding Machines</a></li>
+            <li><a href="laser_accessories.php">Laser Cutting Accessories</a></li>
+            <li><a href="mold.php">Mold Bases</a></li>
           </ul>
         </li>
       </ul>
