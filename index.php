@@ -1703,10 +1703,10 @@ if ($browserLang == 'id') {
         }
 
         .whatsapp-float img {
-            width: 200px;
-            height: auto;
-
-
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .whatsapp-float:hover {
@@ -1715,24 +1715,24 @@ if ($browserLang == 'id') {
 
         @media (max-width: 1024px) {
             .whatsapp-float img {
-                width: 150px;
-                /* Reduce size for tablets */
+                width: 55px;
+                height: 55px;
             }
         }
 
         /* Small screens (mobile) */
         @media (max-width: 768px) {
             .whatsapp-float img {
-                width: 100px;
-                /* Smaller size for mobile devices */
+                width: 50px;
+                height: 50px;
             }
         }
 
         /* Extra small screens (very small phones) */
         @media (max-width: 480px) {
             .whatsapp-float img {
-                width: 80px;
-                /* Even smaller size for very small screens */
+                width: 45px;
+                height: 45px;
             }
         }
 
@@ -1805,36 +1805,80 @@ if ($browserLang == 'id') {
 </head>
 
 <body class="has-hero">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link"> </a>
+    
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <header>
-        <div class="logo">
-            <img src="products/Logos-01.jpg" alt="HSG Logo">
-        </div>
-        <nav class="nav">
-            <ul class="nav-menu">
-                <li ><a href="index.php" class="active">Home</a></li>
-                <li><a href="aboutus.html">About us</a></li>
-                <li class="has-submenu">
-                    <a href="lasercutting.html">Laser Cutting Machines</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.php" aria-label="Home">
+      <img src="products/Logos-01.jpg" alt="ITD Machines Logo">
+    </a>
 
-                </li>
-                <li class="has-submenu">
-                    <a href="cncmachine.html">CNC Machining & Turning Centers</a>
+    <!-- Desktop nav (visible on wide screens) -->
+    <nav class="nav-desktop" role="navigation" aria-label="Primary">
+      <ul class="nav-menu">
+        <li><a href="index.php" class="active" aria-current="page">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        
+        <!-- Products Dropdown -->
+        <li class="has-submenu">
+          <a href="#products">Products</a>
+          <ul class="submenu">
+            <li><a href="lasercutting.html">Laser Cutting Machines</a></li>
+            <li><a href="cncmachine.html">CNC Machining & Turning Centers</a></li>
+            <li><a href="injectionmoulding.html">Injection Moulding Machines</a></li>
+            <li><a href="laser_accessories.html">Laser Cutting Accessories</a></li>
+            <li><a href="mold.html">Mold Bases</a></li>
+          </ul>
+        </li>
+      </ul>
+      <a class="btn-get-quote" href="#request-quote">Get Quote</a>
+    </nav>
 
-                </li>
-                <li><a href="injectionmoulding.html">Injection Moulding Machines</a></li>
-                <li><a href="laser_accessories.html">Laser Cutting Accessories</a></li>
-                <li><a href="mold.html">Mold Bases</a></li>
-            </ul>
-            <a href="#request-quote" class="btn-get-quote">Get Quote</a>
-            <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-        </nav>
-    </header>
+    <!-- Hamburger -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile sliding panel + overlay -->
+<div class="nav-overlay" data-nav-overlay></div>
+<aside id="mobile-panel" class="mobile-panel" aria-hidden="true">
+  <div class="mobile-panel-inner">
+    <button class="mobile-close" aria-label="Close menu">&times;</button>
+
+    <nav role="navigation" aria-label="Mobile primary">
+      <ul class="nav-menu-vertical">
+        <li><a href="index.php" class="active">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        
+        <!-- Mobile Products with submenu -->
+        <li class="has-submenu">
+          <button class="submenu-toggle" aria-expanded="false">Products</button>
+          <ul class="mobile-submenu">
+            <li><a href="lasercutting.html">Laser Cutting Machines</a></li>
+            <li><a href="cncmachine.html">CNC Machining & Turning Centers</a></li>
+            <li><a href="injectionmoulding.html">Injection Moulding Machines</a></li>
+            <li><a href="laser_accessories.html">Laser Cutting Accessories</a></li>
+            <li><a href="mold.html">Mold Bases</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="btn-get-quote mobile-cta" href="#request-quote">Get Quote</a>
+  </div>
+</aside>
+ 
+
     
     <!-- Hero Section -->
+    <main id="main-content">
     <section class="hero-section" id="hero">
         <div class="hero-background">
             <div class="hero-overlay"></div>
@@ -2083,6 +2127,29 @@ if ($browserLang == 'id') {
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
         <script>
+            // Mobile menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const mobilePanel = document.getElementById('mobile-panel');
+const navOverlay = document.querySelector('.nav-overlay');
+const mobileClose = document.querySelector('.mobile-close');
+
+function openMenu() {
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobilePanel.setAttribute('aria-hidden', 'false');
+  navOverlay.classList.add('active');
+  document.body.classList.add('nav-open');
+}
+
+function closeMenu() {
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobilePanel.setAttribute('aria-hidden', 'true');
+  navOverlay.classList.remove('active');
+  document.body.classList.remove('nav-open');
+}
+
+navToggle.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
             document.addEventListener('DOMContentLoaded', function() {
                 new Swiper('.testimonials-swiper', {
                     slidesPerView: 1,
@@ -2179,172 +2246,243 @@ if ($browserLang == 'id') {
 
 
 
-   <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>About Us</h3>
-                <p> INTERTRADE <br> DISTRIBUTORS PVT LTD <br>
-                    Explore our wide range of high-performance equipment tailored to meet your manufacturing needs.</p>
+ <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-company">
+                <h3 class="section-title">About Us</h3>
+                <h2 class="company-name">INTERTRADE DISTRIBUTORS PVT LTD</h2>
+                <p class="company-description">Explore our wide range of high-performance equipment tailored to meet your manufacturing needs.</p>
             </div>
-
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <ul>
-                    <li>Email: itdtech2004@gmail.com</li>
-                    <li>Phone: 0092-300-8227711</li>
-                    <li>Tel: 0092-21-32418554, 32424925</li>
-                    <li>Fax: 0092-21-32418601</li>
-                    <li>Address: Aiwan-e-Tijarat Road P.O Box 4978 Karachi Pakistan</li>
-                    <li>Skype ID: fawad.k9</li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="lasercutting.html">Laser Cutting Machines</a></li>
-                    <li><a href="cncmachine.html">CNC Machining & Turning Centers</a></li>
-                    <li><a href="injectionmoulding.html">Injection Moulding Machines </a></li>
-                    <li><a href="adminlogin.php">Login as admin </a></li>
-                    <li><a href="aboutus.html">About us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a target="_blank" href="https://web.skype.com/"> fawad.k9 <i class="fab fa-skype"></i></a>
+            
+            <div class="footer-contact">
+                <h3 class="section-title">Contact Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:itdtech2004@gmail.com">itdtech2004@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+923008227711">0092-300-8227711</a></p>
+                    <p><i class="fas fa-phone"></i> Tel: <a href="tel:+922132418554">0092-21-32418554</a>, <a href="tel:+922132424925">32424925</a></p>
+                    <p><i class="fas fa-fax"></i> Fax: 0092-21-32418601</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Address: Aiwan-e-Tijarat Road P.O Box 4978 Karachi Pakistan</p>
+                    <p><i class="fab fa-skype"></i> Skype: <a href="skype:fawad.k9?chat">fawad.k9</a></p>
                 </div>
             </div>
+            
+            <div class="footer-links">
+                <h3 class="section-title">Quick Links</h3>
+                <div class="links-grid">
+                    <div class="links-column">
+                        <a href="index.php">Home</a>
+                        <a href="lasercutting.html">Laser Cutting Machines</a>
+                        <a href="cncmachine.html">CNC Machining & Turning Centers</a>
+                        <a href="injectionmoulding.html">Injection Moulding Machines</a>
+                    </div>
+                    <div class="links-column">
+                        <a href="laser_accessories.html">Laser Cutting Accessories</a>
+                        <a href="mold.html">Mold Bases</a>
+                        <a href="adminlogin.php">Login as admin</a>
+                        <a href="aboutus.html">About us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-connect">
+                <h3 class="section-title">Follow Us</h3>
+                <div class="social-media">
+                    <a href="skype:fawad.k9?chat" class="social-link skype" target="_blank" title="Chat on Skype">
+                        <i class="fab fa-skype"></i>
+                    </a>
+                </div>
+                <p style="color: #b8c5d1; font-size: 12px; margin-top: 8px;">fawad.k9</p>
+            </div>
         </div>
-        <div style="display:none">
-            <p><a href="https://mtracing.org/">slotoppo88</a> portal slot online terpercaya di Indonesia</p>
-            <p><a href="https://canonforindiana.com/">SLOTBOM77</a> penyedia permainan slot online resmi</p>
-            <p><a href="https://kmaa26.com/">SLOTOPPO88</a> slot online terpercaya</p>
-            <p><a href="https://mdamoradabad.org/pm-kisan-status-check/">SLOTBOM77</a> situs selot online terpercaya dan resmi</p>
-            <p><a href="https://trem.org/news/hanya-modal-20k-pemain-satgasjitu-cuan-puluhan-juta-dari-scatter-hitam.html">Hanya Modal 20K, Pemain Satgasjitu Cuan Puluhan Juta dari Scatter Hitam</a></p>
-            <p><a href="https://trem.org/news/main-mahjong-ways-pagi-hari-di-slotoppo-bikin-scatter-hitam-muncul-lebih-cepat.html">Main Mahjong Ways Pagi Hari di Slotoppo Bikin Scatter Hitam Muncul Lebih Cepat</a></p>
-            <p><a href="https://trem.org/news/pemain-slotoppo-bongkar-pola-scatter-hitam-mahjong-ways-yang-sering-diabaikan.html">Pemain Slotoppo Bongkar Pola Scatter Hitam Mahjong Ways yang Sering Diabaikan</a></p>
-            <p><a href="https://trem.org/news/pemain-slotoppo-ungkap-3-ciri-scatter-hitam-akan-muncul-di-mahjong-ways.html">Pemain Slotoppo Ungkap 3 Ciri Scatter Hitam Akan Muncul di Mahjong Ways</a></p>
-            <p><a href="https://trem.org/news/pemain-pemula-slotoppo-tak-sadar-scatter-hitam-mudah-muncul-pakai-pola-ini.html">Pemain Pemula Slotoppo Tak Sadar Scatter Hitam Mudah Muncul Pakai Pola Ini</a></p>
-            <p><a href="https://trem.org/news/pola-25x-spin-slotoppo-ini-sukses-bikin-scatter-hitam-muncul-3-kali-berturut.html">Pola 25x Spin Slotoppo Ini Sukses Bikin Scatter Hitam Muncul 3 Kali Berturut</a></p>
-            <p><a href="https://trem.org/news/satgasjitu-resmi-diakui-komunitas-slot-medan-sebagai-referensi-pola-scatter-tertinggi.html">Satgasjitu Resmi Diakui Komunitas Slot Medan Sebagai Referensi Pola Scatter Tertinggi</a></p>
-            <p><a href="https://trem.org/news/deklarasi-satgasjitu-resmi-digelar-di-bandung-ribuan-pecinta-mahjong-hadir.html">Deklarasi Satgasjitu Resmi Digelar di Bandung, Ribuan Pecinta Mahjong Hadir</a></p>
-            <p><a href="https://trem.org/news/satgasjitu-adakan-workshop-menang-mahjong-ways-di-jogja-tiket-sold-out.html">Satgasjitu Adakan Workshop Menang Mahjong Ways di Jogja, Tiket Sold Out</a></p>
-            <p><a href="https://trem.org/news/satgasjitu-ciptakan-komunitas-pemain-mahjong-ways-di-malang-fokus-pada-pola-rtp.html">Satgasjitu Ciptakan Komunitas Pemain Mahjong Ways di Malang, Fokus pada Pola RTP</a></p>
-            <p><a href="https://trem.org/news/satgasjitu-gandeng-influencer-surabaya-promosikan-cara-aman-raih-jackpot-mahjong.html">Satgasjitu Gandeng Influencer Surabaya Promosikan Cara Aman Raih Jackpot Mahjong</a></p>
-            <p><a href="https://trem.org/news/satgasjitu-luncurkan-aplikasi-scatter-tracker-pemain-mahjong-di-bekasi-antusias-coba.html">Satgasjitu Luncurkan Aplikasi Scatter Tracker, Pemain Mahjong di Bekasi Antusias Coba</a></p>
-            <p><a href="https://trem.org/news/satgasjitu-raih-penghargaan-komunitas-digital-terbaik-untuk-pemain-mahjong-di-manado.html">Satgasjitu Raih Penghargaan Komunitas Digital Terbaik untuk Pemain Mahjong di Manado</a></p>
-            <p><a href="https://trem.org/news/mahasiswa-kupang-daftar-slotoppo-coba-demo-mode-dan-langsung-profit.html">Mahasiswa Kupang Daftar Slotoppo, Coba Demo Mode dan Langsung Profit</a></p>
-            <p><a href="https://trem.org/news/mahasiswa-medan-ungkap-pola-spin-mahjong-ways-usai-menang-lewat-slotoppo.html">Mahasiswa Medan Ungkap Pola Spin Mahjong Ways Usai Menang Lewat Slotoppo</a></p>
-            <p><a href="https://trem.org/news/pemain-pemula-makassar-menang-scatter-hitam-ternyata-gunakan-metode-dari-slotoppo.html">Pemain Pemula Makassar Menang Scatter Hitam, Ternyata Gunakan Metode dari Slotoppo</a></p>
-            <p><a href="https://trem.org/news/pemain-pemula-tangerang-berhasil-menang-mahjong-ways-usai-ikuti-tips-slotoppo.html">Pemain Pemula Tangerang Berhasil Menang Mahjong Ways Usai Ikuti Tips Slotoppo</a></p>
-            <p><a href="https://trem.org/news/pengusaha-muda-batam-sebut-slotoppo-sebagai-kunci-profit-harian-dari-mahjong.html">Pengusaha Muda Batam Sebut Slotoppo sebagai Kunci Profit Harian dari Mahjong</a></p>
-            <p><a href="https://trem.org/news/pola-spin-slotoppo-terbukti-kuat-pria-banjarmasin-menang-modal-10-ribu.html">Pola Spin Slotoppo Terbukti Kuat, Pria Banjarmasin Menang Modal 10 Ribu</a></p>
-            <p><a href="https://trem.org/news/viral-emak-emak-tasikmalaya-tembus-3x-scatter-hitam-beruntun-pakai-akun-slotoppo.html">Viral! Emak-Emak Tasikmalaya Tembus 3x Scatter Hitam Beruntun Pakai Akun Slotoppo</a></p>
-            <p><a href="https://berita-viral-cecxe2gaehfzc6ar.southeastasia-01.azurewebsites.net/reseller-skincare-asal-bekasi-bongkar-trik.html">Reseller Skincare Asal Bekasi Bongkar Trik Beli Scatter Hitam di SLOTOPPO hingga Dapat Untung 236 Juta</a></p>
-            <p><a href="https://berita-viral-cecxe2gaehfzc6ar.southeastasia-01.azurewebsites.net/sering-kena-zonks-sopir-pick-up-di-garut.html">Sering Kena Zonks, Sopir Pick-Up di Garut Akhirnya Tembus Pola Winrate 97.3% Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://berita-viral-cecxe2gaehfzc6ar.southeastasia-01.azurewebsites.net/teknisi-ac-temukan-keberuntungan-spin-malam-hari.html">Teknisi AC Temukan Keberuntungan Spin Malam Hari, Dapat Mega Jackpot Mahjong Ways SLOTOPPO!</a></p>
-            <p><a href="https://berita-viral-cecxe2gaehfzc6ar.southeastasia-01.azurewebsites.net/tkw-hong-kong-asal-karawang-ungkap-cara-main-mahjong-ways.html">TKW Hong Kong Asal Karawang Ungkap Cara Main Mahjong Ways dari HP Lama – Cuan Terus di SLOTOPPO</a></p>
-            <p><a href="https://berita-viral-cecxe2gaehfzc6ar.southeastasia-01.azurewebsites.net/wawan-supir-online-jakarta-tak-sengaja-temukan-pola-scatter.html">Wawan, Supir Online Jakarta, Tak Sengaja Temukan Pola Scatter Tengah Malam di Mahjong Ways 3 – Auto Cuan di SLOTOPPO!</a></p>
-            <p><a href="https://newsdaily-g5bhbpfrakasepbt.southeastasia-01.azurewebsites.net/petani-cabe-di-brebes-main-mahjong-ways.html">Petani Cabe di Brebes Main Mahjong Ways Pakai HP Lawas – Dapat Rp132 Juta dari SLOTOPPO</a></p>
-            <p><a href="https://newsdaily-g5bhbpfrakasepbt.southeastasia-01.azurewebsites.net/rian-office-boy-ungkap-trik-auto-spin.html">Rian Office Boy Ungkap Trik Auto Spin 25x Scatter Mahjong Ways SLOTOPPO yang Bikin Saldo Gendut</a></p>
-            <p><a href="https://newsdaily-g5bhbpfrakasepbt.southeastasia-01.azurewebsites.net/sales-elektronik-tembus-mega-jackpot.html">Sales Elektronik Tembus Mega Jackpot Mahjong Ways 1 SLOTOPPO, Bisa Lunasi Kredit Mobil!</a></p>
-            <p><a href="https://newsdaily-g5bhbpfrakasepbt.southeastasia-01.azurewebsites.net/siti-penjual-pulsa-di-pontianak-berhasil-cuan.html">Siti, Penjual Pulsa di Pontianak, Berhasil Cuan Saat Spin Manual Mahjong Ways 3 SLOTOPPO Tengah Malam</a></p>
-            <p><a href="https://newsdaily-g5bhbpfrakasepbt.southeastasia-01.azurewebsites.net/supri-tukang-tambal-ban-di-jogja-dapat-jackpot.html">Supri Tukang Tambal Ban di Jogja Dapat Jackpot Rp205.300.000 dari Scatter Hitam Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/anak-kos-jogja-dapat-hp-baru-usai-pecahkan-pola-scatter-hitam-di-satgasjitu.html">Anak Kos Jogja Dapat HP Baru Usai Pecahkan Pola Scatter Hitam di SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/freelancer-desain-grafis-main-mahjong-ways-saat-lembur-scatter-muncul-di-satgasjitu.html">Freelancer Desain Grafis Main Mahjong Ways Saat Lembur, Scatter Muncul di SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/montir-cilacap-jackpot-mahjong-ways-setelah-pulang-kerja-via-satgasjitu.html">Montir Cilacap Jackpot Mahjong Ways Setelah Pulang Kerja via SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/pegawai-spbu-blitar-gabung-komunitas-satgasjitu-kini-sering-menang-mahjong-ways.html">Pegawai SPBU Blitar Gabung Komunitas SATGASJITU, Kini Sering Menang Mahjong Ways</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/pengusaha-ayam-geprek-konsisten-cuan-harian-mahjong-ways-3-berkat-trik-satgasjitu.html">Pengusaha Ayam Geprek Konsisten Cuan Harian Mahjong Ways 3 Berkat Trik SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/penjahit-bogor-bawa-pulang-rp89-juta-usai-spin-mahjong-ways-di-satgasjitu.html">Penjahit Bogor Bawa Pulang Rp89 Juta Usai Spin Mahjong Ways di SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/petani-temanggung-menang-besar-dari-spin-subuh-mahjong-ways-lewat-satgasjitu.html">Petani Temanggung Menang Besar dari Spin Subuh Mahjong Ways Lewat SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/santri-magelang-modal-rp50-ribu-scatter-hitam-tiba-tiba-turun-di-satgasjitu.html">Santri Magelang Modal Rp50 Ribu, Scatter Hitam Tiba-Tiba Turun di SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/satpam-tebet-menang-2-kali-beruntun-di-mahjong-ways-berkat-pola-satgasjitu.html">Satpam Tebet Menang 2 Kali Beruntun di Mahjong Ways Berkat Pola SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/tukang-las-surabaya-iseng-coba-pola-lama-scatter-hitam-tembus-via-satgasjitu.html">Tukang Las Surabaya Iseng Coba Pola Lama, Scatter Hitam Tembus via SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/warga-karawang-main-mahjong-ways-2-tengah-malam-tarik-rp142-juta-di-satgasjitu.html">Warga Karawang Main Mahjong Ways 2 Tengah Malam, Tarik Rp142 Juta di SATGASJITU</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/slotoppo-resmi-dirikan-komunitas-mahjong-ways-di-padang-fokus-pada-pola-harian.html">Slotoppo Resmi Dirikan Komunitas Mahjong Ways di Padang, Fokus pada Pola Harian</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/barista-shift-malam-jakarta-heran-scatter-hitam-turun-3-kali-berturut-di-slotoppo.html">Barista Shift Malam Jakarta Heran Scatter Hitam Turun 3 Kali Berturut di SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/mahasiswa-teknik-surabaya-bongkar-pola-spin-cepat-mahjong-ways-3-di-slotoppo.html">Mahasiswa Teknik Surabaya Bongkar Pola Spin Cepat Mahjong Ways 3 di SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/ob-bandung-putuskan-pensiun-usai-menang-mahjong-ways-lewat-slotoppo.html">OB Bandung Putuskan Pensiun Usai Menang Mahjong Ways Lewat SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/pemilik-hp-ram-2gb-tetap-bisa-menang-di-mahjong-ways-berkat-slotoppo.html">Pemilik HP RAM 2GB Tetap Bisa Menang di Mahjong Ways Berkat SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/pria-50-an-bukti-pola-lama-masih-ampuh-di-mahjong-ways-slotoppo.html">Pria 50-an Bukti Pola Lama Masih Ampuh di Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/satpam-hotel-main-mahjong-ways-saat-istirahat-cairkan-rp92-juta-di-slotoppo.html">Satpam Hotel Main Mahjong Ways Saat Istirahat, Cairkan Rp92 Juta di SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/docs/setup_files/news/warga-lampung-main-mahjong-ways-tengah-malam-scatter-hitam-turun-via-slotoppo.html">Warga Lampung Main Mahjong Ways Tengah Malam, Scatter Hitam Turun via SLOTOPPO</a></p>
-            <p>Terima kasih atas informasinya, sangat membantu! Kunjungi juga situs kami <a href="https://slotoppoid.cyou/" rel="dofollow">Slotoppo Link Situs Game Online Gacor Resmi</a></p>
-            <p><a href="https://infrastructurelogistics.ca/">slotoppo</a> Link Bukan Bos Tapi Berani Boros Para Pemain Slotoppo</p>
-            <p><a href="https://revitalcare.com.au/">SLOTOPPO88</a> : Link Membawa Keberutungan Dan Kebahagian</p>
-            <p><a href="https://sanwajutaku-chukai.com/">SLOTOPPO88</a> : Link Yang setiap Hari Panen Di Cari Para Pemain Slotoppo Dengan Kemenangan Maxwin</p>
-            <p><a href="https://kmaa26.com/news/tukang-las-surabaya-coba-iseng-spin-pola-lama.html">Tukang Las Surabaya: Coba Iseng Spin Pola Lama, Akhirnya Scatter Hitam Tembus SATGASJITU</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/pola-simpel-mahjong-wins-3-gopay178-pemain-betah-cuan-terus.html">pola simpel mahjong wins 3 gopay178 pemain betah cuan terus</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/strategi-keberhasilan-mahjong-ways-2-gopay178-scatter-turun-tanpa-henti.html">strategi keberhasilan mahjong ways 2 gopay178 scatter turun tanpa henti</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/petani-bogor-skill-pola-spin-mahjong-ways-2-gopay178-jp-125-juta.html">petani bogor skill pola spin mahjong ways 2 gopay178 jp 125 juta</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/lomba-17-agustus-joko-kediri-juara-mahjong-ways-2.html">lomba 17 agustus joko kediri juara mahjong ways 2</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/17-agustus-dodi-papua-kemenangan-maksimal-mahjong-ways-2-gopay178.html">17 agustus dodi papua kemenangan maksimal mahjong ways 2 gopay178</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/wild-bandito-petualangan-tengkorak-kejutan-jp-maksimal.html">wild bandito petualangan tengkorak kejutan jp maksimal</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/timnas-putri-indonesia-u20-gagal-kualifikasi-piala-asia-gopay178.html">timnas putri indonesia u20 gagal kualifikasi piala asia gopay178</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/modal-receh-mengguncang-mahjong-ways-2-bukti-keberuntungan.html">modal receh mengguncang mahjong ways 2 bukti keberuntungan</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/guru-ngaji-menangis-bahagia-rejeki-tak-terduga-mahjong-ways-2-gopay178.html">guru ngaji menangis bahagia rejeki tak terduga mahjong ways 2 gopay178</a></p>
-            <p><a href="https://jurnalptik.id/home/berita/youtuber-reza-trik-pola-mahjong-ways-125-juta-masuk-rekening.html">youtuber reza trik pola mahjong ways 125 juta masuk rekening</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/buruh-harian-pontianak-dapat-scatter-hitam-5-kali-di-satgasjitu.html">Buruh Harian Pontianak Dapat Scatter Hitam 5 Kali di Satgasjitu</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/guru-les-privat-cirebon-raih-jackpot-lewat-scatter-hitam-satgasjitu.html">Guru Les Privat Cirebon Raih Jackpot Lewat Scatter Hitam Satgasjitu</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/mahasiswi-semarang-dapat-pola-spin-cepat-mahjong-ways-dari-satgasjitu.html">Mahasiswi Semarang Dapat Pola Spin Cepat Mahjong Ways dari Satgasjitu</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/nelayan-pesisir-riau-raih-cuan-rp80-juta-di-mahjong-ways-satgasjitu.html">Nelayan Pesisir Riau Raih Cuan Rp80 Juta di Mahjong Ways Satgasjitu</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pegawai-kantor-surabaya-menang-besar-di-mahjong-ways-via-satgasjitu.html">Pegawai Kantor Surabaya Menang Besar di Mahjong Ways via Satgasjitu</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pemuda-mataram-gunakan-pola-satgasjitu--scatter-hitam-turun-4-kali.html">Pemuda Mataram Gunakan Pola Satgasjitu, Scatter Hitam Turun 4 Kali</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/petani-padi-lombok-utara-menang-cuan-dari-scatter-hitam-satgasjitu.html">Petani Padi Lombok Utara Menang Cuan dari Scatter Hitam Satgasjitu</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/peternak-ayam-malang-menang-rp40-juta-di-mahjong-ways-satgasjitu.html">Peternak Ayam Malang Menang Rp40 Juta di Mahjong Ways Satgasjitu</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/satgasjitu-bantu-ibu-kos-medan-temukan-pola-scatter-hitam-ampuh.html">Satgasjitu Bantu Ibu Kos Medan Temukan Pola Scatter Hitam Ampuh</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/satgasjitu-bantu-pegawai-hotel-balikpapan-raih-jackpot-scatter-hitam.html">Satgasjitu Bantu Pegawai Hotel Balikpapan Raih Jackpot Scatter Hitam</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/satgasjitu-bongkar-strategi-pemain-bali-menang-beruntun-di-scatter-hitam.html">Satgasjitu Bongkar Strategi Pemain Bali Menang Beruntun di Scatter Hitam</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/satgasjitu-catat-kemenangan-pemuda-batam-berkat-scatter-hitam-mahjong-ways.html">Satgasjitu Catat Kemenangan Pemuda Batam Berkat Scatter Hitam Mahjong Ways</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/satgasjitu-laporkan-pemain-banjarmasin-menang-besar-di-mahjong-ways.html">Satgasjitu Laporkan Pemain Banjarmasin Menang Besar di Mahjong Ways</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/satgasjitu-umumkan-pola-baru-mahjong-ways-untuk-pemain-harian.html">Satgasjitu Umumkan Pola Baru Mahjong Ways untuk Pemain Harian</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/satgasjitu-umumkan-pola-malam-yang-picu-scatter-hitam-mahjong-ways.html">Satgasjitu Umumkan Pola Malam yang Picu Scatter Hitam Mahjong Ways</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/anak-kos-yogyakarta-sukses-cuan-berkat-scatter-hitam-di-slotoppo.html">Anak Kos Yogyakarta Sukses Cuan Berkat Scatter Hitam di SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/barista-surabaya-menang-tengah-malam-usai-scatter-hitam-slotoppo.html">Barista Surabaya Menang Tengah Malam Usai Scatter Hitam SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/buruh-pabrik-tangerang-kantongi-rp50-juta-dari-mahjong-ways-slotoppo.html">Buruh Pabrik Tangerang Kantongi Rp50 Juta dari Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/ibu-rumah-tangga-bali-raih-cuan-dari-mahjong-ways-berkat-pola-slotoppo.html">Ibu Rumah Tangga Bali Raih Cuan dari Mahjong Ways Berkat Pola SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/mahasiswa-makassar-bongkar-rahasia-pola-harian-mahjong-ways-slotoppo.html">Mahasiswa Makassar Bongkar Rahasia Pola Harian Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/nelayan-jepara-pulang-bawa-cuan-besar-dari-scatter-hitam-slotoppo.html">Nelayan Jepara Pulang Bawa Cuan Besar dari Scatter Hitam SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pegawai-toko-bandung-menang-rp30-juta-di-mahjong-ways-slotoppo.html">Pegawai Toko Bandung Menang Rp30 Juta di Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pelajar-smk-dapat-jackpot-usai-scatter-hitam-4-kali-di-slotoppo.html">Pelajar SMK Dapat Jackpot Usai Scatter Hitam 4 Kali di SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pemuda-aceh-menang-besar-usai-pola-lama-scatter-hitam-slotoppo.html">Pemuda Aceh Menang Besar Usai Pola Lama Scatter Hitam SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pemuda-bogor-menang-beruntun-di-mahjong-ways-3-lewat-slotoppo.html">Pemuda Bogor Menang Beruntun di Mahjong Ways 3 Lewat SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pengemudi-ojol-bekasi-raih-scatter-hitam-3-kali-di-slotoppo.html">Pengemudi Ojol Bekasi Raih Scatter Hitam 3 Kali di SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/penjaga-parkir-medan-dapat-kemenangan-beruntun-di-mahjong-ways-slotoppo.html">Penjaga Parkir Medan Dapat Kemenangan Beruntun di Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/petani-kopi-lampung-temukan-pola-scatter-hitam-di-slotoppo.html">Petani Kopi Lampung Temukan Pola Scatter Hitam di SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/pria-kalimantan-tengah-temukan-pola-spin-ajaib-mahjong-ways-slotoppo.html">Pria Kalimantan Tengah Temukan Pola Spin Ajaib Mahjong Ways SLOTOPPO</a></p>
-            <p><a href="https://pemas.unisla.ac.id/pages/assets/news/sopir-travel-pekanbaru-menang-besar-usai-scatter-hitam-muncul-di-slotoppo.html">Sopir Travel Pekanbaru Menang Besar Usai Scatter Hitam Muncul di SLOTOPPO</a></p>
-            <p><a href="https://www.predictivelabs.com/">SLOTOPPO Situs Sabung Ayam Online SV388 Online 24 jam Terpercaya</a></p>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ITD Machines. All rights reserved.</p>
         </div>
-    </footer>
+    </footer>  
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
+       document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobilePanel = document.getElementById('mobile-panel');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const mobileClose = document.querySelector('.mobile-close');
+    const header = document.querySelector('.site-header');
 
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('open');
-            });
+    // Enhanced mobile menu toggle
+    function openMobileMenu() {
+        navToggle.setAttribute('aria-expanded', 'true');
+        mobilePanel.setAttribute('aria-hidden', 'false');
+        navOverlay.classList.add('active');
+        document.body.classList.add('nav-open');
+        document.body.style.overflow = 'hidden';
+    }
 
-            const submenuToggles = document.querySelectorAll('header nav ul li');
-
-            submenuToggles.forEach(function(submenuToggle) {
-                submenuToggle.addEventListener('mouseenter', function() {
-                    const submenu = this.querySelector('.submenu');
-                    if (submenu) {
-                        submenu.style.display = 'block';
-                    }
-                });
-
-                submenuToggle.addEventListener('mouseleave', function() {
-                    const submenu = this.querySelector('.submenu');
-                    if (submenu) {
-                        submenu.style.display = 'none';
-                    }
-                });
-            });
+    function closeMobileMenu() {
+        navToggle.setAttribute('aria-expanded', 'false');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        navOverlay.classList.remove('active');
+        document.body.classList.remove('nav-open');
+        document.body.style.overflow = '';
+        
+        // Close all open submenus when closing main menu
+        document.querySelectorAll('.mobile-submenu.expanded').forEach(submenu => {
+            submenu.classList.remove('expanded');
+            submenu.previousElementSibling.setAttribute('aria-expanded', 'false');
         });
+    }
+
+    // Event listeners for menu open/close
+    navToggle.addEventListener('click', openMobileMenu);
+    mobileClose.addEventListener('click', closeMobileMenu);
+    navOverlay.addEventListener('click', closeMobileMenu);
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobilePanel.getAttribute('aria-hidden') === 'false') {
+            closeMobileMenu();
+        }
+    });
+
+    // Mobile submenu toggles
+    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            const submenu = this.nextElementSibling;
+            
+            // Close other open submenus (accordion behavior)
+            document.querySelectorAll('.submenu-toggle').forEach(otherToggle => {
+                if (otherToggle !== this && otherToggle.getAttribute('aria-expanded') === 'true') {
+                    otherToggle.setAttribute('aria-expanded', 'false');
+                    otherToggle.nextElementSibling.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current submenu
+            this.setAttribute('aria-expanded', !isExpanded);
+            submenu.classList.toggle('expanded');
+        });
+    });
+
+    // Header scroll effect
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Skip if it's just a placeholder (#products, #, etc.)
+            if (href === '#' || href === '#products') {
+                e.preventDefault();
+                return;
+            }
+            
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Close mobile menu if open
+                if (mobilePanel.getAttribute('aria-hidden') === 'false') {
+                    closeMobileMenu();
+                }
+            }
+        });
+    });
+
+    // Close mobile menu when clicking on regular links
+    document.querySelectorAll('.mobile-submenu a, .nav-menu-vertical > li > a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (mobilePanel.getAttribute('aria-hidden') === 'false') {
+                setTimeout(() => closeMobileMenu(), 150);
+            }
+        });
+    });
+
+    // Active link highlighting based on current page
+    function updateActiveLink() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.php';
+        
+        // Update desktop nav
+        document.querySelectorAll('.nav-menu a, .submenu a').forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href');
+            
+            if (linkHref === currentPage || 
+                (currentPage === '' && linkHref === 'index.php') ||
+                (currentPage === 'index.php' && linkHref === 'index.php')) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Update mobile nav
+        document.querySelectorAll('.nav-menu-vertical a, .mobile-submenu a').forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href');
+            
+            if (linkHref === currentPage || 
+                (currentPage === '' && linkHref === 'index.php') ||
+                (currentPage === 'index.php' && linkHref === 'index.php')) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Update active link on page load
+    updateActiveLink();
+
+    // Optional: Active link highlighting based on scroll position for single-page sections
+    const sections = document.querySelectorAll('section[id]');
+    
+    if (sections.length > 0) {
+        function updateActiveSection() {
+            let current = '';
+            const scrollPosition = window.pageYOffset + 150;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-menu a[href^="#"], .nav-menu-vertical a[href^="#"]').forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                
+                if (href === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveSection);
+    }
+
+    // Prevent clicks on desktop dropdown parent from navigating
+    document.querySelectorAll('.nav-desktop .has-submenu > a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#products' || this.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+        });
+    });
+});
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -2358,5 +2496,6 @@ if ($browserLang == 'id') {
             });
         });
     </script> <script src="script.js"></script>
+    </main>
 </body> 
 </html>
