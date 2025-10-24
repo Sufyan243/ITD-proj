@@ -384,32 +384,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
     </div>
         <h2  class="form-title">Injection Moulding Machines</h2>
-        <div class="product-categories">
-            <button data-filter="all">All</button>
-            <button data-filter="UTS">UTS</button>
-            
-        </div>
-     
-           <div class="product-list">
-           
-            <div class="product-list">
-                <div class="product-item" data-category="UTS">
-                    <img src="products/sonly1.png" alt="GL Laser Cutting Machine">
-                    <h3> <br>U98-3400TS</h3>
-                    <p>UTS series servo energy-saving injection moulding machine</p>
-                    <a href="pdf/sonly1.html" class="button">Learn More</a>
-                    <button class="inquiry-button">Inquiry</button>
-                </div>
-              
-            
-             
-               
-            </div>
-          
-        
-         
-           
-        </div>
+     <div class="product-categories">
+    <button data-filter="all" class="active">All</button>
+    <button data-filter="uts">UTS</button>
+</div>
+
+<div class="product-list">
+  <?php
+  include 'db_connection.php';
+  $category = 'injectionmoulding'; // category from cards table
+  $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
+
+  if (mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          // detect subcategory based on title
+          $title = strtolower($row['title']);
+          $subcategory = 'uts';
+          if (!str_contains($title, 'uts')) $subcategory = 'all';
+          ?>
+          <div class="product-item" data-category="<?= $subcategory ?>">
+              <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
+              <h3><?= htmlspecialchars($row['title']) ?></h3>
+              <p><?= htmlspecialchars($row['description']) ?></p>
+              <?php if (!empty($row['pdf'])): ?>
+                <a href="<?= htmlspecialchars($row['pdf']) ?>" class="button" target="_blank">Learn More</a>
+              <?php endif; ?>
+              <button class="inquiry-button">Inquiry</button>
+          </div>
+          <?php
+      }
+  } else {
+      echo "<p style='text-align:center;'>No Injection Moulding Machines available yet.</p>";
+  }
+  ?>
+</div>
+
     </section>
  
              
@@ -451,4 +460,47 @@ include("includes/footer.php");
     
         </script>
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".product-categories button");
+  const cards = document.querySelectorAll(".product-item");
+
+  // make sure filter buttons don't submit forms (in case they are inside a form)
+  buttons.forEach(b => b.setAttribute('type', 'button'));
+
+  function applyFilter(filter) {
+    cards.forEach(card => {
+      const cat = card.getAttribute("data-category") || 'all';
+      if (filter === "all" || cat === filter) {
+        card.classList.remove('hidden-by-filter');
+        // restore aria for accessibility
+        card.setAttribute('aria-hidden', 'false');
+      } else {
+        card.classList.add('hidden-by-filter');
+        card.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      applyFilter(filter);
+      // optional: focus the first visible card
+      const first = document.querySelector('.product-item:not(.hidden-by-filter)');
+      if (first) first.scrollIntoView({behavior: 'smooth', block: 'center'});
+    });
+  });
+
+  // ensure initial state (if one button has .active in HTML)
+  const activeBtn = document.querySelector('.product-categories button.active');
+  if (activeBtn) applyFilter(activeBtn.getAttribute('data-filter'));
+});
+</script>
+
+
+
+
 </html>

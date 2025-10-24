@@ -150,6 +150,15 @@ $next_order = $sort_order === 'ASC' ? 'DESC' : 'ASC';
             text-decoration: none;
                 color: white;
         }
+        .btn-home + .btn-home {
+    margin-left: 10px;
+    background-color: #28a745; /* Green for variety */
+}
+
+.btn-home + .btn-home:hover {
+    background-color: #218838;
+}
+
     </style>
 </head>
 <body>
@@ -157,6 +166,7 @@ $next_order = $sort_order === 'ASC' ? 'DESC' : 'ASC';
 
     <!-- Home Button -->
     <a href="index.php" class="btn-home">Go to Home</a>
+<a href="admin_cards.php" class="btn-home">See Cards Detail</a>
 
     <!-- Search Input -->
     <input type="text" id="filter-input" class="filter-input" placeholder="Search quotes...">

@@ -432,153 +432,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
     </div>
         <h2  class="form-title">CNC Machining & Turning Centers</h2>
-        <div class="product-categories">
-            <button data-filter="all">All</button>
-            <button data-filter="vertical-mills">Vertical Mills</button>
-            <button data-filter="lathes">Lathes</button>
-            <button data-filter="drip">Drill Tap Centres</button>
-            <button data-filter="5-axis">5-Axis Mills</button>
-        </div>
-       
-        <div class="product-list">
-            <div class="product-item" data-category="vertical-mills">
-                <img src="New folder/x7/x5.png" alt="GL Laser Cutting Machine">
-                <h3>SYIL X5 Mini CNC Mill</h3>
-                <p>300×260×300 mm axis travels
+      <div class="product-categories">
+    <button data-filter="all" class="active">All</button>
+    <button data-filter="vertical-mills">Vertical Mills</button>
+    <button data-filter="lathes">Lathes</button>
+    <button data-filter="drill-tap">Drill Tap Centres</button>
+    <button data-filter="5-axis">5-Axis Mills</button>
+</div>
 
-                    16-pocket high-speed servo tool changer
-                    
-                    20,000 rpm direct-coupled BT30 spindle
-                    
-                    SCHNEEBERGER mineral cast bed
-                    
-                    One-meter width for narrow spaces</p>
-                <a href="x5.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="vertical-mills">
-                <img src="New folder/x7/x7.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL X7 Small CNC Machinel</h3>
-                <p>400×300×380 mm axis travels
+<div class="product-list">
+  <?php
+  include 'db_connection.php';
+  $category = 'cncmachine';
+  $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
 
-                    12-pocket umbrella automatic tool changer
-                    
-                    12,000 rpm BT30 spindle
-                    
-                    SCHNEEBERGER mineral casting</p>
-                <a href="x7.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="vertical-mills">
-                <img src="New folder/x7/x9.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL X9 Vertical Mill</h3>
-                <p>760×500×500 mm axis travels
+  if (mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          // 🔹 auto detect subcategory based on title keywords
+          $title = strtolower($row['title']);
+          $subcategory = 'vertical-mills'; // default
 
-                    24-pocket high-speed servo auto tool changer
-                    
-                    10,000 rpm BT40 spindle
-                    
-                    SCHNEEBERGER mineral casting
-                    </p>
-                <a href="x9.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="vertical-mills">
-                <img src="New folder/x7/x11.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL X11 Vertical Machining Center</h3>
-                <p>1000x500x500 mm axis travels
+          if (str_contains($title, 'lathe')) $subcategory = 'lathes';
+          elseif (str_contains($title, 'drill') || str_contains($title, 'tap')) $subcategory = 'drill-tap';
+          elseif (str_contains($title, '5-axis') || str_contains($title, 'u5')) $subcategory = '5-axis';
+          elseif (str_contains($title, 'vertical') || str_contains($title, 'x7') || str_contains($title, 'x9')) $subcategory = 'vertical-mills';
 
-                    24-pocket high-speed servo auto tool changer
-                    
-                    12,000 rpm BT40 spindle
-                    
-                    SCHNEEBERGER mineral casting
-                    
-                    </p>
-                <a href="x11.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="lathes">
-                <img src="New folder/l2.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL L2 CNC Lathe</h3>
-                <p>8-inch hydraulic chuck
+          ?>
+          <div class="product-item" data-category="<?= $subcategory ?>">
+              <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
+              <h3><?= htmlspecialchars($row['title']) ?></h3>
+              <p><?= htmlspecialchars($row['description']) ?></p>
+              <div class="button-group">
+                  <?php if (!empty($row['pdf'])): ?>
+                      <a href="<?= htmlspecialchars($row['pdf']) ?>" class="button" target="_blank">Learn More</a>
+                  <?php endif; ?>
+                  <button class="inquiry-button">Inquiry</button>
+              </div>
+          </div>
+          <?php
+      }
+  } else {
+      echo "<p style='text-align:center;'>No CNC Machines added yet.</p>";
+  }
+  ?>
+</div>
 
-                    Maximum turning diameter of ø510 mm
-                    
-                    Through-hole diameter of ø66  mm
-                    
-                    8-position servo tool turret
-                    
-                    Compact footprint
-                    </p>
-                <a href="pdf/l2.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="lathes">
-                <img src="New folder/l3.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL L3 CNC Lathe</h3>
-                <p>8-inch hydraulic chuck
-
-                    Maximum swing diameter of ø500 mm
-                    
-                    Through-hole diameter of ø63 mm
-                    
-                    A2-6 spindle
-                    
-                    Power-driven tool speed of 5,000 rpm
-                    </p>
-                <a href="pdf/l3.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="drip">
-                <img src="New folder/t5.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL T5 Drill Tap Mill</h3>
-                <p>600x450x330 mm axis travels
-
-                    21-pocket High-Speed Servo Tool Changer
-                    
-                    20,000 rpm Direct BT30 Spindle
-                    
-                    High-Precision Mineral Casting
-                    
-                    THK Ball Screw and Linear Guide
-                    </p>
-                <a href="pdf/t5.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="drip">
-                <img src="New folder/t7.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL T7 Drill Tap Mill</h3>
-                <p>700x450x330 mm axis travels
-
-                    21-pocket high-speed servo tool magazine
-                    
-                    20,000 rpm direct BT30 spindle
-                    
-                    High-precision mineral casting
-                    
-                    THK ball screw and linear guide
-                    </p>
-                <a href="pdf/t7.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="5-axis">
-                <img src="New folder/u5.jpg" alt="GL Laser Cutting Machine">
-                <h3>SYIL U5 5-Axis Mill</h3>
-                <p>500x300x250 mm axis travels
-
-                    200 mm Direct Drive 5-axis rotary table
-                    
-                    32-pocket high-speed servo tool magazine
-                    
-                    30,000 rpm HSK-E40 electric spindle
-                    
-                    SCHNEEBEERGER mineral casting
-                    </p>
-                <a href="pdf/u5.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-        </div>
     </section>
     
   <?php 
@@ -655,4 +553,24 @@ include 'includes/footer.php';
     
         </script>
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".product-categories button");
+  const cards = document.querySelectorAll(".product-item");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach(card => {
+        const cat = card.getAttribute("data-category");
+        card.style.display = (filter === "all" || cat === filter) ? "flex" : "none";
+      });
+    });
+  });
+});
+</script>
+
 </html>

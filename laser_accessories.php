@@ -319,32 +319,32 @@ include("includes/header.php");
 
         <section class="product-list-section">
             <h2 class="section-title">Laser Cutting Accessories</h2>
-            <div class="product-list">
-                <div class="product-item">
-                    <img src="products/laser accessories/ceramic body.webp" alt="Ceramic Body">
-                    <h3>Ceramic Body</h3>
-                    <p>Essential component for stable and precise laser cutting head operation.</p>
-                    <button class="inquiry-button">Inquiry</button>
-                </div>
-                <div class="product-item">
-                    <img src="products/laser accessories/focus lens.avif" alt="Focus Lens">
-                    <h3>Focus Lens</h3>
-                    <p>High-quality optical lens for concentrating the laser beam for optimal cut.</p>
-                    <button class="inquiry-button">Inquiry</button>
-                </div>
-                <div class="product-item">
-                    <img src="products/laser accessories/nozzels.jpg" alt="Nozzles">
-                    <h3>Nozzles</h3>
-                    <p>Designed for various materials and thicknesses to ensure clean, efficient cuts.</p>
-                    <button class="inquiry-button">Inquiry</button>
-                </div>
-                <div class="product-item">
-                    <img src="products/laser accessories/Protection lens.webp" alt="Protection Lens">
-                    <h3>Protection Lens</h3>
-                    <p>Shields delicate focusing optics from spatter and debris.</p>
-                    <button class="inquiry-button">Inquiry</button>
-                </div>
-            </div>
+          <div class="product-list">
+  <?php
+  include 'db_connection.php';
+  $category = 'mold'; // category column in your cards table
+  $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
+
+  if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+      ?>
+      <div class="product-item">
+        <img src="<?= htmlspecialchars($row['image']); ?>" alt="<?= htmlspecialchars($row['title']); ?>">
+        <h3><?= htmlspecialchars($row['title']); ?></h3>
+
+        <?php if (!empty($row['description'])): ?>
+          <p class="product-description"><?= nl2br(htmlspecialchars($row['description'])); ?></p>
+        <?php endif; ?>
+
+        <button class="inquiry-button">Inquiry</button>
+      </div>
+      <?php
+    }
+  } else {
+    echo "<p style='text-align:center;'>No mold products available yet.</p>";
+  }
+  ?>
+</div>
         </section>
 
         <?php 

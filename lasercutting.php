@@ -470,91 +470,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
     </div>
         <h2  class="form-title">Laser Cutting Machine</h2>
-        <div class="product-categories">
-            <button data-filter="all">All</button>
-            <button data-filter="pilot">Pilot Model</button>
-            <button data-filter="flagship">Flagship Model</button>
-            <button data-filter="classic">Classic Model</button>
-            <button data-filter="material-coiling">Material Coiling</button>
-            <button data-filter="hand-held">Handheld laser welding Machine</button>
-        </div>
-        <div  class="product-list">
-            <div class="product-item" data-category="classic">
-                <img src="products/c.webp" alt="C Laser Cutting Machine">
-                <h3>C</h3>
-                <p>1500W-60000W</p>
-                <p>Economical Single-platform Fiber Laser Cutting Machine</p>
-                <a href="pdf/c.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="pilot">
-                <img src="products/gv (1).webp" alt="GV Laser Cutting Machine">
-                <h3>GV</h3>
-                <p>6000W-60000W</p>
-                <p>Pilot Series 6G All Linear Motor Fiber Laser Cutting Machine</p>
-                <a href="pdf/gv.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="flagship">
-                <img src="products/gh.webp" alt="GH Laser Cutting Machine">
-                <h3>GH</h3>
-                <p>3000W-30000W</p>
-                <p>High-performance Fiber Laser Cutting Machine</p>
-                <a href="pdf/gh.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="flagship">
-                <img src="products/gf.webp" alt="GFA Laser Cutting Machine">
-                <h3>GFA</h3>
-                <p>12000W-60000W</p>
-                <p>Large-format Fiber Laser Cutting Machine</p>
-                <a href="pdf/gfa.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            
-            <div class="product-item" data-category="hand-held">
-                <img src="products/fmw.webp" alt="Handheld laser welding Machine">
-                <h3>FMW</h3>
-                <p>1000W-3000W</p>
-                <p>Handheld Laser Fiber Welding Machine</p>
-                <a href="pdf/fmw.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="classic">
-                <img src="products/gfc.webp" alt="GFC Laser Cutting Machine">
-                <h3>GFC</h3>
-                <p>12000W-60000W</p>
-                <p>Economical Large-format Sheet Fiber Laser Cutting Machine</p>
-                <a href="pdf/gfc.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="classic">
-                <img src="products/gx.webp" alt="GX Laser Cutting Machine">
-                <h3>GX</h3>
-                <p>3000W-30000W</p>
-                <p>High-power Bus Sheet Fiber Laser Cutting Machine</p>
-                <a href="pdf/gx.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-        
-            <div class="product-item" data-category="classic">
-                <img src="products/x3015.webp" alt="X Laser Cutting Machine">
-                <h3>X</h3>
-                <p>1500W-12000W</p>
-                <p>Compact Laser Cutting Machine</p>
-                <a href="pdf/x.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" data-category="material-coiling">
-                <img src="products/gl.webp" alt="GL Laser Cutting Machine">
-                <h3>GL</h3>
-                <p>1500W-60000W</p>
-                <p>Material Coiling Laser Cutting Machine</p>
-                <a href="pdf/gl.html" class="button">Learn More</a>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-           
-        </div>
+     <div class="product-categories">
+    <button data-filter="all" class="active">All</button>
+    <button data-filter="pilot">Pilot Model</button>
+    <button data-filter="flagship">Flagship Model</button>
+    <button data-filter="classic">Classic Model</button>
+    <button data-filter="material-coiling">Material Coiling</button>
+    <button data-filter="hand-held">Handheld laser welding Machine</button>
+</div>
+
+<div class="product-list">
+  <?php
+  include 'db_connection.php';
+  $category = 'lasercutting';
+  $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
+
+  if (mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          // subcategory mapping (based on title keywords)
+          $title = strtolower($row['title']);
+          $subcategory = 'classic'; // default
+
+          if (str_contains($title, 'pilot')) $subcategory = 'pilot';
+          elseif (str_contains($title, 'flag')) $subcategory = 'flagship';
+          elseif (str_contains($title, 'coil')) $subcategory = 'material-coiling';
+          elseif (str_contains($title, 'hand')) $subcategory = 'hand-held';
+
+          ?>
+          <div class="product-item" data-category="<?= $subcategory ?>">
+              <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
+              <h3><?= htmlspecialchars($row['title']) ?></h3>
+              <p><?= htmlspecialchars($row['description']) ?></p>
+              <div class="button-group">
+                  <?php if (!empty($row['pdf'])): ?>
+                      <a href="<?= htmlspecialchars($row['pdf']) ?>" class="button" target="_blank">Learn More</a>
+                  <?php endif; ?>
+                  <button class="inquiry-button">Inquiry</button>
+              </div>
+          </div>
+          <?php
+      }
+  } else {
+      echo "<p style='text-align:center;'>No Laser Cutting Machines available yet.</p>";
+  }
+  ?>
+</div>
+
         
     </section>
     
@@ -631,4 +592,28 @@ include 'includes/footer.php';
     
         </script>
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".product-categories button");
+  const cards = document.querySelectorAll(".product-item");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach(card => {
+        const cat = card.getAttribute("data-category");
+        if (filter === "all" || cat === filter) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
+</script>
+
 </html>

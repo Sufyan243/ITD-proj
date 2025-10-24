@@ -338,62 +338,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
         <h2  class="form-title">Mold Bases</h2>
  
-        <div  class="product-list">
-            <div class="product-item">
-                <img src="products/Mold Base/cavity-set.jpeg" >
-                <h3>Cavity Set</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" >
-                <img src="products/Mold Base/standard-mold-base.jpeg" alt="GV Laser Cutting Machine">
-                <h3>Standard Mold Base</h3>
+      <div class="product-list">
+<div class="product-list">
+  <?php
+  include 'db_connection.php';
+  $category = 'mold'; // category column in your cards table
+  $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
 
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item">
-                <img src="products/Mold Base/ejector-housing.jpeg" alt="GH Laser Cutting Machine">
-                <h3>Ejector Housing</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            <div class="product-item" >
-                <img src="products/Mold Base/fits-frames-inserts-accessories.jpeg" alt="GFA Laser Cutting Machine">
-                <h3>Fits Frames</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-             <div class="product-item" >
-                <img src="products/Mold Base/insert-steel.jpeg" alt="GFA Laser Cutting Machine">
-                <h3>Insert Steel</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-             <div class="product-item">
-                <img src="products/Mold Base/insulator-sheet.jpeg" alt="GFA Laser Cutting Machine">
-                <h3>Insulator Sheet</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-             <div class="product-item">
-                <img src="products/Mold Base/mold-base-special.jpeg" alt="GFA Laser Cutting Machine">
-                <h3>Mold Base Special</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-             <div class="product-item">
-                <img src="products/Mold Base/mold-base-standard-aluminum.jpeg" alt="GFA Laser Cutting Machine">
-                <h3>Mold Base Standard Aluminum</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-             <div class="product-item">
-                <img src="products/Mold Base/mold-plate.jpeg" alt="GFA Laser Cutting Machine">
-                <h3>Mold Plate</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-                <div class="product-item">
-                <img src="products/Mold Base/spacer-blocks-clamp-slotted.jpeg" alt="GFA Laser Cutting Machine">
-                <h3>Spacer Blocks</h3>
-                <button class="inquiry-button">Inquiry</button>
-            </div>
-            
-         
-        </div>
-        
+  if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+      ?>
+      <div class="product-item">
+        <img src="<?= htmlspecialchars($row['image']); ?>" alt="<?= htmlspecialchars($row['title']); ?>">
+        <h3><?= htmlspecialchars($row['title']); ?></h3>
+
+        <?php if (!empty($row['description'])): ?>
+          <p class="product-description"><?= nl2br(htmlspecialchars($row['description'])); ?></p>
+        <?php endif; ?>
+
+        <button class="inquiry-button">Inquiry</button>
+      </div>
+      <?php
+    }
+  } else {
+    echo "<p style='text-align:center;'>No mold products available yet.</p>";
+  }
+  ?>
+</div>
+
+</div>
+
     </section>
        
    <?php 
