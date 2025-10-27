@@ -416,8 +416,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <video data-src="New folder/Sonly.mp4"  preload="metadata" autoplay="autoplay" loop="loop" muted="muted" webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline" x-webkit-airplay="allow" src="New folder/Sonly.mp4" ></video>
     </div>
     <section id="injection" class="products">
-        <h2 class="form-title" style="color: #153170;">About SONLY</h2>
-        <p class="model-title-p"  >Sonly was founded in 1998. It is a machinery manufacturer integrating development, production and sales, and is also a member of the China Plastic Machinery Industry Association. Shouli covers an area of ​​60,000 square meters, has advanced precision processing equipment and a professional R&D management team, and has an annual production capacity of 5,000 units.</p>
+        <h2 class="form-title" style="color: #153170;">About Youzu, Hwamda & SS Machinery</h2>
+        <p class="model-title-p"  >These leading Chinese manufacturers specialize in high-precision injection molding solutions, integrating R&D, production, and global sales. With decades of experience, they provide advanced, energy-efficient, and automated molding systems serving diverse industries including packaging, automotive, electronics, and household appliances. Their focus on innovation, quality, and sustainability ensures reliable machines and complete molding line solutions for global clients.</p>
             <div class="contact-btns-container">
         <a href="tel:03008227711" class="contact-btn btn-call">
             📞 Call
