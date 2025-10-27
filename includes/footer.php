@@ -23,15 +23,15 @@
                 <div class="links-grid">
                     <div class="links-column">
                         <a href="index.php">Home</a>
-                        <a href="lasercutting.html">Laser Cutting Machines</a>
-                        <a href="cncmachine.html">CNC Machining & Turning Centers</a>
-                        <a href="injectionmoulding.html">Injection Moulding Machines</a>
+                        <a href="lasercutting.php">Laser Cutting Machines</a>
+                        <a href="cncmachine.php">CNC Machining & Turning Centers</a>
+                        <a href="injectionmoulding.php">Injection Moulding Machines</a>
                     </div>
                     <div class="links-column">
-                        <a href="laser_accessories.html">Laser Cutting Accessories</a>
-                        <a href="mold.html">Mold Bases</a>
+                        <a href="laser_accessories.php">Laser Cutting Accessories</a>
+                        <a href="mold.pph">Mold Bases</a>
                         <a href="adminlogin.php">Login as admin</a>
-                        <a href="aboutus.html">About us</a>
+                        <a href="aboutus.php">About us</a>
                     </div>
                 </div>
             </div>

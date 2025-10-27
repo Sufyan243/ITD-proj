@@ -336,6 +336,7 @@ include("includes/header.php");
                 height: 30px;
             }
         }
+        
     </style>
 </head>
 <body class="has-hero">
@@ -397,9 +398,11 @@ include("includes/header.php");
 </div>
         </section>
 
-        <?php 
-include 'includes/ContactForm.php';
-include 'includes/footer.php';?>
+<?php include 'includes/ContactForm.php'; ?>
+</div> <!-- close page-content here -->
+
+<?php include 'includes/footer.php'; ?>
+
     </div>
    <script>
             // Mobile menu toggle

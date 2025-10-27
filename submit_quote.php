@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         // Set session variable and redirect
         $_SESSION['form_submitted'] = true;
-        header("Location: aboutus.html");
+        header("Location: aboutus.php");
         exit();
     } else {
         echo "Error: " . $stmt->error;

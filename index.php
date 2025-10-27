@@ -1883,7 +1883,7 @@ p {
                         <div class="card-body">
                             <h3 class="text-title">HSG Laser Cutting Machine</h3>
                             <p class="text-ftitle">High-precision fiber laser cutting for metal sheets</p>
-                            <a class="learn-more" href="lasercutting.html">Learn More</a>
+                            <a class="learn-more" href="lasercutting.php">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1895,7 +1895,7 @@ p {
                         <div class="card-body">
                             <h3 class="text-title">SYIL CNC Machining Centers</h3>
                             <p class="text-ftitle">Advanced CNC milling and turning solutions</p>
-                            <a class="learn-more" href="cncmachine.html">Learn More</a>
+                            <a class="learn-more" href="cncmachine.php">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1907,7 +1907,7 @@ p {
                         <div class="card-body">
                             <h3 class="text-title">SYIL Injection Moulding Machines</h3>
                             <p class="text-ftitle">Precision plastic injection molding equipment</p>
-                            <a class="learn-more" href="injectionmoulding.html">Learn More</a>
+                            <a class="learn-more" href="injectionmoulding.php">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1935,7 +1935,7 @@ p {
                     <img src="injection m.jpg" class="d-block w-100" alt="Image 0">
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='injectionmoulding.html'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='injectionmoulding.php'">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>
@@ -1947,7 +1947,7 @@ p {
 
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='cncmachine.html'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='cncmachine.php'">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>
@@ -1958,7 +1958,7 @@ p {
                     <img src="crousel/gv_m (1).webp" class="d-block w-100" alt="Image 2">
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.html'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>
@@ -1969,7 +1969,7 @@ p {
                     <img src="crousel/weldingm.jpg" class="d-block w-100" alt="Image 3">
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.html'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>

@@ -138,12 +138,35 @@ button:hover, .btn:hover {
   cursor: pointer;
   color: #999;
 }
+ .btn-home {
+            padding: 8px 16px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+  .btn-home + .btn-home {
+    margin-left: 10px;
+    background-color: #28a745; /* Green for variety */
+}
+
+.btn-home + .btn-home:hover {
+    background-color: #218838;
+}
+
 </style>
 </head>
 <body>
 
 <div class="container">
   <h2>Manage Cards</h2>
+  <a href="quotes.php" class="btn-home"><- See Quotes Record</a>
+
   <button onclick="openModal('add')">+ Add New Card</button><br><br>
 
   <table class="table">
@@ -164,7 +187,7 @@ button:hover, .btn:hover {
         <td>
           <?php 
           if ($row['pdf'])
-            echo "<a class='btn btn-secondary' href='{$row['pdf']}' target='_blank'>View PDF</a>";
+            echo "<a class='btn btn-secondary' href='{$row['pdf']}' target='_blank'>PDF</a>";
           else
             echo "-";
           ?>

@@ -41,7 +41,7 @@
     <nav role="navigation" aria-label="Mobile primary">
       <ul class="nav-menu-vertical">
         <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="aboutus.php">About Us</a></li>
         
         <!-- Mobile Products with submenu -->
         <li class="has-submenu">

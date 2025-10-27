@@ -430,10 +430,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
     </div>
         <h2  class="form-title">Injection Moulding Machines</h2>
-     <div class="product-categories">
+  <div class="product-categories">
     <button data-filter="all" class="active">All</button>
-    <button data-filter="uts">UTS</button>
+    <button data-filter="YZ">Youzu</button>
+    <button data-filter="HW">Hwamda</button>
+    <button data-filter="SS">SSmachinery</button>
 </div>
+
 
 <div class="product-list">
   <?php
@@ -445,8 +448,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       while ($row = mysqli_fetch_assoc($result)) {
           // detect subcategory based on title
           $title = strtolower($row['title']);
-          $subcategory = 'uts';
-          if (!str_contains($title, 'uts')) $subcategory = 'all';
+        $title = strtolower($row['title']);
+$subcategory = 'all';
+
+if (str_contains($title, 'yz')) $subcategory = 'YZ';
+elseif (str_contains($title, 'hw')) $subcategory = 'HW';
+elseif (str_contains($title, 'ss')) $subcategory = 'SS';
+
           ?>
           <div class="product-item" data-category="<?= $subcategory ?>">
               <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
@@ -597,7 +605,191 @@ document.addEventListener("DOMContentLoaded", () => {
   if (activeBtn) applyFilter(activeBtn.getAttribute('data-filter'));
 });
 </script>
+<script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobilePanel = document.getElementById('mobile-panel');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const mobileClose = document.querySelector('.mobile-close');
+    const header = document.querySelector('.site-header');
 
+    // Enhanced mobile menu toggle
+    function openMobileMenu() {
+        navToggle.setAttribute('aria-expanded', 'true');
+        mobilePanel.setAttribute('aria-hidden', 'false');
+        navOverlay.classList.add('active');
+        document.body.classList.add('nav-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        navToggle.setAttribute('aria-expanded', 'false');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        navOverlay.classList.remove('active');
+        document.body.classList.remove('nav-open');
+        document.body.style.overflow = '';
+        
+        // Close all open submenus when closing main menu
+        document.querySelectorAll('.mobile-submenu.expanded').forEach(submenu => {
+            submenu.classList.remove('expanded');
+            submenu.previousElementSibling.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // Event listeners for menu open/close
+    navToggle.addEventListener('click', openMobileMenu);
+    mobileClose.addEventListener('click', closeMobileMenu);
+    navOverlay.addEventListener('click', closeMobileMenu);
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobilePanel.getAttribute('aria-hidden') === 'false') {
+            closeMobileMenu();
+        }
+    });
+
+    // Mobile submenu toggles
+    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            const submenu = this.nextElementSibling;
+            
+            // Close other open submenus (accordion behavior)
+            document.querySelectorAll('.submenu-toggle').forEach(otherToggle => {
+                if (otherToggle !== this && otherToggle.getAttribute('aria-expanded') === 'true') {
+                    otherToggle.setAttribute('aria-expanded', 'false');
+                    otherToggle.nextElementSibling.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current submenu
+            this.setAttribute('aria-expanded', !isExpanded);
+            submenu.classList.toggle('expanded');
+        });
+    });
+
+    // Header scroll effect
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Skip if it's just a placeholder (#products, #, etc.)
+            if (href === '#' || href === '#products') {
+                e.preventDefault();
+                return;
+            }
+            
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Close mobile menu if open
+                if (mobilePanel.getAttribute('aria-hidden') === 'false') {
+                    closeMobileMenu();
+                }
+            }
+        });
+    });
+
+    // Close mobile menu when clicking on regular links
+    document.querySelectorAll('.mobile-submenu a, .nav-menu-vertical > li > a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (mobilePanel.getAttribute('aria-hidden') === 'false') {
+                setTimeout(() => closeMobileMenu(), 150);
+            }
+        });
+    });
+
+    // Active link highlighting based on current page
+    function updateActiveLink() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.php';
+        
+        // Update desktop nav
+        document.querySelectorAll('.nav-menu a, .submenu a').forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href');
+            
+            if (linkHref === currentPage || 
+                (currentPage === '' && linkHref === 'index.php') ||
+                (currentPage === 'index.php' && linkHref === 'index.php')) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Update mobile nav
+        document.querySelectorAll('.nav-menu-vertical a, .mobile-submenu a').forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href');
+            
+            if (linkHref === currentPage || 
+                (currentPage === '' && linkHref === 'index.php') ||
+                (currentPage === 'index.php' && linkHref === 'index.php')) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Update active link on page load
+    updateActiveLink();
+
+    // Optional: Active link highlighting based on scroll position for single-page sections
+    const sections = document.querySelectorAll('section[id]');
+    
+    if (sections.length > 0) {
+        function updateActiveSection() {
+            let current = '';
+            const scrollPosition = window.pageYOffset + 150;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-menu a[href^="#"], .nav-menu-vertical a[href^="#"]').forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                
+                if (href === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveSection);
+    }
+
+    // Prevent clicks on desktop dropdown parent from navigating
+    document.querySelectorAll('.nav-desktop .has-submenu > a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#products' || this.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+        });
+    });
+});
+    </script>
 
 
 
