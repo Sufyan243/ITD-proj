@@ -674,7 +674,7 @@ navOverlay.addEventListener('click', closeMenu);
         lastScrollTop = scrollTop;
     });
 
-    // Smooth scroll for anchor links
+ 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');

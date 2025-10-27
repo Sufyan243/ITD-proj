@@ -8,7 +8,7 @@
     <nav class="nav-desktop" role="navigation" aria-label="Primary">
       <ul class="nav-menu">
         <li><a href="index.php" class="active" aria-current="page">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="aboutus.php">About Us</a></li>
         
         <!-- Products Dropdown -->
         <li class="has-submenu">
