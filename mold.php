@@ -153,6 +153,7 @@ p, li, a {
     background-color: #8c1726; /* Slightly darker shade */
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(179, 30, 50, 0.6);
+    color: #e5e0d4;
 }
 
 .btn-whatsapp {

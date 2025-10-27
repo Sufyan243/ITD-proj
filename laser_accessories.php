@@ -150,6 +150,7 @@ include("includes/header.php");
 .btn-call:hover, .btn-email:hover {
     background-color: #8c1928; /* Slightly darker red on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #e5e0d4;
 }
 
 .btn-whatsapp:hover {

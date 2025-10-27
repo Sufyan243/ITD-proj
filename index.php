@@ -514,8 +514,8 @@ p {
             --hsg-indigo: #6610f2;
             --hsg-purple: #6f42c1;
             --hsg-pink: #d63384;
-            --hsg-red: #dc3545;
-            --hsg-orange: #fd7e14;
+            --hsg-red: #8C1927;
+            --hsg-orange: #B31E32;
             --hsg-yellow: #ffc107;
             --hsg-green: #198754;
             --hsg-teal: #20c997;
@@ -538,7 +538,7 @@ p {
             --hsg-success: #22c55e;
             --hsg-info: #4c82f7;
             --hsg-warning: #ffba08;
-            --hsg-danger: #ef4444;
+            --hsg-danger: #8C1927;
             --hsg-light: #fff;
             --hsg-dark: #0b0f19;
             --hsg-primary-rgb: 99, 102, 241;
@@ -1866,7 +1866,7 @@ p {
         <div class="hero-content container">
             <h1 class="hero-title">Pakistan's Leading Laser & CNC Machine Supplier</h1>
             <p class="hero-subtitle">Performance. Precision. Perfection.</p>
-            <a href="#request-quote" class="btn-hero-cta">Request a Quote</a>
+            <a href="#request-quote" class="btn-hero-cta" >Request a Quote</a>
         </div>
     </section>
     
@@ -2006,7 +2006,7 @@ p {
                         <img src="New folder/hsg.jpg" alt="HSG Logo">
                     </div>
                     <h3>HSG</h3>
-                    <div class="partner-badge">Official Distributor</div>
+                    <div class="partner-badge" style="background-color:#8C1927 !important;">Official Distributor</div>
                     <p>Founded in 2006, HSG Laser is a high-tech enterprise specializing in the research, development, production, and sales of intelligent metal shaping equipment. The company is dedicated to providing metal shaping and automated production line solutions to global customers.</p>
                 </div>
                 <div class="card1 partner-card-enhanced">
@@ -2014,7 +2014,7 @@ p {
                         <img src="New folder/Logo Color.jpg" alt="SYIL Logo">
                     </div>
                     <h3>SYIL</h3>
-                    <div class="partner-badge">Authorized Partner</div>
+                    <div class="partner-badge" style="background-color:#8C1927 !important;">Authorized Partner</div>
                     <p>At SYIL, our mission is to design and manufacture top-quality, affordable CNC machines tailored for small business owners. We are dedicated to providing accessible and reliable machinery that empowers entrepreneurs to thrive in their industries.</p>
                 </div>
             </div>

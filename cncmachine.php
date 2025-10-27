@@ -172,6 +172,7 @@ a:hover {
 .btn-call:hover, .btn-email:hover {
     background-color: var(--color-button-hover);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    color: #e5e0d4;
 }
 
 .btn-whatsapp:hover {

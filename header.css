@@ -83,14 +83,14 @@
 }
 
 .nav-menu > li > a:hover {
-  color: #0066cc;
+  color: #B31E32;
   background: rgba(0, 102, 204, 0.05);
 }
 
-.nav-menu > li > a.active {
-  color: #0066cc;
+/* .nav-menu > li > a.active {
+  color: #33354d;
   background: rgba(0, 102, 204, 0.1);
-}
+} */
 
 /* Dropdown indicator */
 .has-submenu > a::after {
@@ -142,8 +142,8 @@
 }
 
 .submenu a:hover {
-  background: rgba(0, 102, 204, 0.08);
-  color: #0066cc;
+  /* background: rgba(0, 102, 204, 0.08); */
+  color: #8C1927;
   padding-left: 1.5rem;
 }
 
@@ -153,7 +153,7 @@
 .btn-get-quote {
   display: inline-block;
   padding: 0.75rem 1.75rem;
-  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  background:  #B31E32;
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
@@ -166,7 +166,7 @@
 
 .btn-get-quote:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 6px 20px #8C1927;
 }
 
 .btn-get-quote:active {
@@ -200,7 +200,7 @@
 }
 
 .nav-toggle:hover span {
-  background: #0066cc;
+  background: #8C1927;
 }
 
 .nav-toggle[aria-expanded="true"] span:nth-child(1) {
@@ -318,7 +318,7 @@
 
 .nav-menu-vertical > li > a:hover,
 .nav-menu-vertical > li > a.active {
-  color: #0066cc;
+  color: #8C1927;
   padding-left: 1.25rem;
 }
 
@@ -340,7 +340,7 @@
 }
 
 .submenu-toggle:hover {
-  color: #0066cc;
+  color: #8C1927;
   padding-left: 1.25rem;
 }
 
@@ -383,7 +383,7 @@
 }
 
 .mobile-submenu a:hover {
-  color: #0066cc;
+  color: #8C1927;
   background: rgba(0, 102, 204, 0.05);
   padding-left: 2rem;
 }
@@ -515,7 +515,7 @@ body.nav-open {
 .submenu-toggle:focus-visible,
 .submenu a:focus-visible,
 .mobile-submenu a:focus-visible {
-  outline: 3px solid #0066cc;
+  outline: 3px solid #8C1927;
   outline-offset: 2px;
 }
 
