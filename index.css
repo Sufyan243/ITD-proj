@@ -107,7 +107,7 @@
 .form-select:focus,
 .form-textarea:focus {
     border-color: #345aca;
-    background-color: #ffffff;
+    background-color: #FFF8EB;
     box-shadow: 0 0 0 3px rgba(52, 90, 202, 0.1);
     outline: none;
 }
@@ -589,13 +589,13 @@ html {
 .product-center.center-section {
     position: relative;
     z-index: 2;
-    background-color: #ffffff;
+    background-color: #FFF8EB;
     margin-bottom: 3rem;
     padding: 60px 0;
 }
 
 .partners-section {
-    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    background: linear-gradient(180deg, #FFF8EB 0%, #FFF8EB 100%);
     padding: 80px 0;
 }
 

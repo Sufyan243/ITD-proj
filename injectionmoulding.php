@@ -204,76 +204,104 @@ video {
 
 /* Product List */
 .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* each card min width 280px */
+  gap: 25px;
+  justify-items: center;
+  align-items: stretch;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .product-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    width: calc(33% - 30px); /* 3 items per row on desktop */
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    overflow: hidden;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+  width: 100%;                /* full width in grid cell */
+  max-width: 320px;           /* control card width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
 .product-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .product-item h3 {
-    font-size: 1.2rem;
-    color: var(--color-text);
     margin-bottom: 10px;
+    font-size: 1.5rem; 
+    color: var(--color-text); /* Dark text for machine name */
 }
 
 .product-item p {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    min-height: 40px; /* Ensures consistent height */
+    font-size: 0.95rem; 
+    color: #666; 
+    text-align: left; 
+    padding: 0 5px;
+    flex-grow: 1; /* Pushes button group to the bottom */
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
-.product-item .button, .inquiry-button {
+.product-item p:nth-of-type(1) {
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.product-item .button-group {
+    margin-top: auto; 
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.product-item .button,
+.product-item .inquiry-button {
+    flex-grow: 1;
     display: inline-block;
     padding: 10px 15px;
-    margin: 5px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
     font-size: 0.9rem;
-    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
 }
 
-.product-item .button {
-    background-color: var(--color-primary);
+.product-item .button { 
+    background-color: var(--color-primary); 
     color: var(--color-light);
+    border: 2px solid var(--color-primary);
 }
 
 .product-item .button:hover {
     background-color: #8c1928;
+    border-color: #8c1928;
 }
 
-.inquiry-button {
+.product-item .inquiry-button { 
     background-color: transparent;
     color: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
     cursor: pointer;
 }
 
-.inquiry-button:hover {
+.product-item .inquiry-button:hover {
     background-color: var(--color-primary);
     color: var(--color-light);
 }
@@ -309,27 +337,45 @@ video {
 
 /* --- RESPONSIVE DESIGN (Media Queries) --- */
 
-/* Tablet/Small Desktop */
-@media (max-width: 1024px) {
-    .product-item {
-        width: calc(50% - 20px); /* 2 items per row */
+@media (max-width: 992px) {
+    .product-list {
+        /* On medium screens, 2 columns of min 300px width */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-  
-    /* Main Content Adjustments */
-    section {
-        padding: 30px 4%;
+    .form-title {
+        font-size: 2rem;
+    }
+    .model-title-p {
+        font-size: 1rem;
     }
     
-  
+    .product-list {
+        /* On small screens, now 2 equal columns for better layout */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
     
     .product-item {
-        width: 100%; /* 1 item per row */
+        padding: 15px;
+    }
+
+    .product-item h3 {
+        font-size: 1.2rem;
     }
     
+    .product-item p {
+        font-size: 0.85rem;
+    }
+
+    .product-item .button,
+    .product-item .inquiry-button {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
     .contact-btns-container {
         flex-direction: column;
         align-items: center;
@@ -337,28 +383,28 @@ video {
     
     .contact-btn {
         width: 100%;
-        min-width: 100px;
+        min-width: unset;
     }
-
- 
 }
 
-/* Small Mobile */
 @media (max-width: 480px) {
-    .form-title {
-        font-size: 1.5rem;
+    .product-list {
+        grid-template-columns: 1fr; /* Single column on mobile */
     }
     .product-categories button {
-        padding: 8px 15px;
+        padding: 8px 12px;
         font-size: 0.85rem;
     }
-    .model-title-p {
-        font-size: 0.95rem;
+    .whatsapp-float {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
     }
 }
       </style>
 </head>
-<body>
+<body class="has-hero">
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -460,6 +506,58 @@ include("includes/footer.php");
     
         </script>
 <script src="script.js"></script>
+   <script>
+            // Mobile menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const mobilePanel = document.getElementById('mobile-panel');
+const navOverlay = document.querySelector('.nav-overlay');
+const mobileClose = document.querySelector('.mobile-close');
+
+function openMenu() {
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobilePanel.setAttribute('aria-hidden', 'false');
+  navOverlay.classList.add('active');
+  document.body.classList.add('nav-open');
+}
+
+function closeMenu() {
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobilePanel.setAttribute('aria-hidden', 'true');
+  navOverlay.classList.remove('active');
+  document.body.classList.remove('nav-open');
+}
+
+navToggle.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
+            document.addEventListener('DOMContentLoaded', function() {
+                new Swiper('.testimonials-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2
+                        },
+                        1024: {
+                            slidesPerView: 3
+                        }
+                    }
+                });
+            });
+        </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".product-categories button");

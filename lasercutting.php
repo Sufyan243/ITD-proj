@@ -420,7 +420,7 @@ a:hover {
     
       </style>
 </head>
-<body>
+<body class="has-hero">
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -590,6 +590,58 @@ include 'includes/footer.php';
         });
     });
     
+        </script>
+           <script>
+            // Mobile menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const mobilePanel = document.getElementById('mobile-panel');
+const navOverlay = document.querySelector('.nav-overlay');
+const mobileClose = document.querySelector('.mobile-close');
+
+function openMenu() {
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobilePanel.setAttribute('aria-hidden', 'false');
+  navOverlay.classList.add('active');
+  document.body.classList.add('nav-open');
+}
+
+function closeMenu() {
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobilePanel.setAttribute('aria-hidden', 'true');
+  navOverlay.classList.remove('active');
+  document.body.classList.remove('nav-open');
+}
+
+navToggle.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
+            document.addEventListener('DOMContentLoaded', function() {
+                new Swiper('.testimonials-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2
+                        },
+                        1024: {
+                            slidesPerView: 3
+                        }
+                    }
+                });
+            });
         </script>
 <script src="script.js"></script>
 <script>

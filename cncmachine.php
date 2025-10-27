@@ -211,70 +211,80 @@ a:hover {
 
 /* --- PRODUCT LIST (GRID) - Card Improvements --- */
 .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    justify-items: center;
-    align-items: stretch;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* each card min width 280px */
+  gap: 25px;
+  justify-items: center;
+  align-items: stretch;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .product-item {
-    width: 100%;
-    max-width: 350px;
-    background-color: var(--color-card-bg);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+  width: 100%;                /* full width in grid cell */
+  max-width: 320px;           /* control card width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
-
 .product-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    margin-bottom: 15px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .product-item h3 {
-    margin-bottom: 15px;
-    color: var(--color-primary); 
+    margin-bottom: 10px;
     font-size: 1.5rem; 
+    color: var(--color-text-dark); /* Dark text for machine name */
 }
 
 .product-item p {
-    font-size: 0.9rem; 
+    font-size: 0.95rem; 
     color: #666; 
     text-align: left; 
     padding: 0 5px;
-    /* Important for uniform height: takes all available space */
-    flex-grow: 1; 
+    flex-grow: 1; /* Pushes button group to the bottom */
     margin-bottom: 20px;
-    line-height: 1.5; /* Improved readability */
+    line-height: 1.5;
+}
+
+.product-item p:nth-of-type(1) {
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 .product-item .button-group {
     margin-top: auto; 
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .product-item .button,
 .product-item .inquiry-button {
+    flex-grow: 1;
     display: inline-block;
     padding: 10px 15px;
     font-size: 0.9rem;
     border-radius: 5px;
-    margin: 5px 2px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s;
@@ -347,7 +357,7 @@ a:hover {
     
     .product-list {
         /* On small screens, 2 columns of min 45% width */
-        grid-template-columns: repeat(auto-fill, minmax(45%, 1fr)); 
+        grid-template-columns: repeat(2, 1fr); 
         gap: 15px;
     }
     
@@ -363,7 +373,16 @@ a:hover {
         font-size: 0.85rem;
     }
 
-  
+    .product-item .button,
+    .product-item .inquiry-button {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .contact-btn {
+        width: 100%;
+        min-width: unset;
+    }
 }
 
 @media (max-width: 480px) {
@@ -383,7 +402,7 @@ a:hover {
 }
       </style>
 </head>
-<body>
+<body class="has-hero">
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

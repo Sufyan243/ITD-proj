@@ -165,69 +165,94 @@ include("includes/header.php");
         }
 
         .product-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* each card min width 280px */
+          gap: 25px;
+          justify-items: center;
+          align-items: stretch;
+          padding: 20px;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         .product-item {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 20px;
-            text-align: center;
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          text-align: center;
+          padding: 20px;
+          width: 100%;                /* full width in grid cell */
+          max-width: 320px;           /* control card width */
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
         }
 
         .product-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          transform: translateY(-8px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
-
         .product-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 15px;
         }
-        /* No hover scale on image for product-item, as the whole card moves */
 
         .product-item h3 {
-            font-size: 1.3rem;
-            color: var(--text-color);
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 1.5rem; 
+            color: var(--text-color); /* Dark text for machine name */
         }
 
         .product-item p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-            height: 40px; /* fixed height for alignment */
-            overflow: hidden;
+            font-size: 0.95rem; 
+            color: #666; 
+            text-align: left; 
+            padding: 0 5px;
+            flex-grow: 1; /* Pushes button group to the bottom */
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-item .button-group {
+            margin-top: auto; 
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
         .inquiry-button {
-            padding: 10px 20px;
             background-color: var(--primary-color);
             color: var(--background-color);
-            border: none;
-            border-radius: 6px;
+            padding: 10px 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .inquiry-button:hover {
             background-color: #8c1625;
+            border-color: #8c1625;
         }
 
      
         
         /* Mobile/Responsiveness Adjustments */
+        @media (max-width: 992px) {
+            .product-list {
+                /* On medium screens, 2 columns of min 300px width */
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
             .section-title {
                 font-size: 2rem;
@@ -235,15 +260,39 @@ include("includes/header.php");
             .about-text {
                 font-size: 1rem;
             }
+            
             .product-list {
-                grid-template-columns: 1fr; /* Stack products on small screens */
+                /* On small screens, now 2 equal columns for better layout */
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 15px;
             }
-          
-            .product-item img {
-                height: 150px;
+            
+            .product-item {
+                padding: 15px;
             }
+
+            .product-item h3 {
+                font-size: 1.2rem;
+            }
+            
             .product-item p {
-                 height: auto; /* Allow text to flow naturally */
+                font-size: 0.85rem;
+            }
+
+            .inquiry-button {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-list {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            
+            .inquiry-button {
+                padding: 8px 12px;
+                font-size: 0.85rem;
             }
         }
 
@@ -288,7 +337,7 @@ include("includes/header.php");
         }
     </style>
 </head>
-<body>
+<body class="has-hero">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="https://wa.me/+923008227711" class="whatsapp-float" target="_blank">
@@ -351,7 +400,58 @@ include("includes/header.php");
 include 'includes/ContactForm.php';
 include 'includes/footer.php';?>
     </div>
+   <script>
+            // Mobile menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const mobilePanel = document.getElementById('mobile-panel');
+const navOverlay = document.querySelector('.nav-overlay');
+const mobileClose = document.querySelector('.mobile-close');
 
+function openMenu() {
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobilePanel.setAttribute('aria-hidden', 'false');
+  navOverlay.classList.add('active');
+  document.body.classList.add('nav-open');
+}
+
+function closeMenu() {
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobilePanel.setAttribute('aria-hidden', 'true');
+  navOverlay.classList.remove('active');
+  document.body.classList.remove('nav-open');
+}
+
+navToggle.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
+            document.addEventListener('DOMContentLoaded', function() {
+                new Swiper('.testimonials-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2
+                        },
+                        1024: {
+                            slidesPerView: 3
+                        }
+                    }
+                });
+            });
+        </script>
     <script>
         // The inquiry button script is kept from the original
         document.addEventListener("DOMContentLoaded", () => {

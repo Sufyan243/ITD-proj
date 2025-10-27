@@ -174,66 +174,90 @@ p, li, a {
 
 /* --- Product List Styles (Mold Bases Section) --- */
 .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* each card min width 280px */
+  gap: 25px;
+  justify-items: center;
+  align-items: stretch;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .product-item {
-    background-color: var(--light-text-color);
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding-bottom: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+  width: 100%;                /* full width in grid cell */
+  max-width: 320px;           /* control card width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
 .product-item img {
-    width: 100%;
-    height: 200px; /* Fixed height for image consistency */
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.product-item img:hover {
-    transform: scale(1.03);
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .product-item h3 {
-    margin: 15px 0 15px;
-    font-size: 1.4rem;
-    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem; 
+    color: var(--text-color); /* Dark text for machine name */
+}
+
+.product-item p {
+    font-size: 0.95rem; 
+    color: #666; 
+    text-align: left; 
+    padding: 0 5px;
+    flex-grow: 1; /* Pushes button group to the bottom */
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.product-item .button-group {
+    margin-top: auto; 
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .inquiry-button {
     background-color: var(--primary-color);
     color: var(--light-text-color);
-    padding: 10px 20px;
-    border: none;
+    padding: 10px 15px;
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .inquiry-button:hover {
     background-color: #8c1726;
+    border-color: #8c1726;
 }
 
 
 
-/* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
     .product-list {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        /* On medium screens, 2 columns of min 300px width */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 }
 
@@ -242,14 +266,32 @@ p, li, a {
         font-size: 2rem;
     }
     
-   
-    
     .product-list {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        /* On small screens, now 2 equal columns for better layout */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    
+    .product-item {
+        padding: 15px;
+    }
+
+    .product-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .product-item p {
+        font-size: 0.85rem;
+    }
+
+    .inquiry-button {
+        padding: 8px 10px;
+        font-size: 0.8rem;
     }
 
     .contact-btn {
-        min-width: 100%;
+        width: 100%;
+        min-width: unset;
     }
 
     .hsg-about-video {
@@ -258,20 +300,14 @@ p, li, a {
 }
 
 @media (max-width: 480px) {
-    .products {
-        padding: 20px 3%;
-    }
-    
-    .product-item h3 {
-        font-size: 1.2rem;
+    .product-list {
+        grid-template-columns: 1fr; /* Single column on mobile */
     }
     
     .inquiry-button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+        padding: 8px 12px;
+        font-size: 0.85rem;
     }
-    
-  
     
     .hsg-about-video {
         height: 30vh;
@@ -287,7 +323,7 @@ p, li, a {
       </style>
     
 </head>
-<body>
+<body class="has-hero">
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -479,7 +515,58 @@ include 'includes/footer.php';
     </footer> -->
 </body>
 
+   <script>
+            // Mobile menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const mobilePanel = document.getElementById('mobile-panel');
+const navOverlay = document.querySelector('.nav-overlay');
+const mobileClose = document.querySelector('.mobile-close');
 
+function openMenu() {
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobilePanel.setAttribute('aria-hidden', 'false');
+  navOverlay.classList.add('active');
+  document.body.classList.add('nav-open');
+}
+
+function closeMenu() {
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobilePanel.setAttribute('aria-hidden', 'true');
+  navOverlay.classList.remove('active');
+  document.body.classList.remove('nav-open');
+}
+
+navToggle.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+navOverlay.addEventListener('click', closeMenu);
+            document.addEventListener('DOMContentLoaded', function() {
+                new Swiper('.testimonials-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2
+                        },
+                        1024: {
+                            slidesPerView: 3
+                        }
+                    }
+                });
+            });
+        </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const navToggle = document.querySelector('.nav-toggle');

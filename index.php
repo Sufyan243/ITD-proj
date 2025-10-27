@@ -135,21 +135,56 @@ include("includes/header.php");
 
 
     <script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/452264695/?random=1723290801131&amp;cv=11&amp;fst=1723290801131&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be4880za200&amp;gcd=13l3l3l3l1&amp;dma=0&amp;tag_exp=0&amp;u_w=1280&amp;u_h=1024&amp;url=https%3A%2F%2Fwww.hsglaser.com%2F&amp;ref=https%3A%2F%2Fwww.hsglaser.com%2Fproducts%2Fsheet-metal%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=Fiber%20laser%20cutting%20machine%20%7C%20EU%20and%20ISO%20certification%20%7C%20HSG&amp;npa=0&amp;pscdl=noapi&amp;auid=596629092.1720506078&amp;uaa=x86&amp;uab=64&amp;uafvl=Not)A%253BBrand%3B99.0.0.0%7CGoogle%2520Chrome%3B127.0.6533.100%7CChromium%3B127.0.6533.100&amp;uamb=0&amp;uam=&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;fledge=1&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    
     <style>
-   
+/* Define Theme Colors */
+:root {
+    --color-light: #FFF8EB; /* Creamy White - Main Background */
+    --color-primary: #B31E32; /* Deep Red - Accent/Highlight */
+    --color-dark: #2a2a2a; /* Dark Color */
+    --color-text: #333; /* Standard Dark Text */
+    --color-text-light: #666; /* Secondary Text */
+}
+
+/* Base Styles */
+body {
+    font-family: "Baskervville", serif !important;
+    background-color: var(--color-light) !important; 
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 { 
+    color: var(--color-primary); 
+    font-weight: 700;
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 1.5em;
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
 
         .quote {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 50px 5%;
+            background-color: var(--color-light);
         }
 
         .quote-form {
             background: #fff;
             padding: 70px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 800px;
             animation: fadeIn 1s ease-in-out;
@@ -159,15 +194,16 @@ include("includes/header.php");
             text-align: center;
             margin-bottom: 30px;
             font-size: 28px;
-            color: #333;
+            color: var(--color-primary);
             position: relative;
+            font-weight: 700;
         }
 
         .form-title::after {
             content: '';
             width: 50px;
             height: 4px;
-            background-color: #ff8800;
+            background-color: var(--color-primary);
             position: absolute;
             left: 50%;
             bottom: -10px;
@@ -209,7 +245,7 @@ include("includes/header.php");
         .form-input:focus,
         .form-select:focus,
         .form-textarea:focus {
-            border-color: #ff8800;
+            border-color: var(--color-primary);
             outline: none;
         }
 
@@ -221,18 +257,19 @@ include("includes/header.php");
         .form-submit {
             width: 100%;
             padding: 15px;
-            background-color: #ff8800;
+            background-color: var(--color-primary);
             border: none;
             border-radius: 8px;
             color: #fff;
             font-size: 18px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-weight: 600;
         }
 
         .form-submit:hover {
-            background-color: #ff8800;
-            filter: drop-shadow(3px 4px 5px #000000);
+            background-color: #9a1a2b;
+            filter: drop-shadow(3px 4px 5px rgba(0, 0, 0, 0.3));
         }
 
         @keyframes fadeIn {
@@ -524,7 +561,7 @@ include("includes/header.php");
             --hsg-body-font-weight: 300;
             --hsg-body-line-height: 1.6;
             --hsg-body-color: #565973;
-            --hsg-body-bg: #f5f5f5;
+            --hsg-body-bg: #FFF8EB;
             --hsg-border-width: 1px;
             --hsg-border-style: solid;
             --hsg-border-color: #e2e5f1;
@@ -1368,7 +1405,7 @@ include("includes/header.php");
         .center-section {
             position: relative;
             z-index: 2;
-            background-color: #f1f3f5;
+            background-color: #FFF8EB;
             margin-bottom: 1.5rem;
         }
 
@@ -1409,7 +1446,7 @@ include("includes/header.php");
             /* Adjusted padding to fit text better */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            background-color: #fff;
+            background-color: #FFF8EB;
             transition: transform 0.3s ease;
             overflow: hidden;
             /* Prevents text overflow */
@@ -1463,9 +1500,9 @@ include("includes/header.php");
             text-align: center;
             margin-bottom: 30px;
             font-size: 36px;
-            color: #333;
+            color: var(--color-primary);
             position: relative;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 50px;
             margin-top: 50px;
         }
@@ -1474,7 +1511,7 @@ include("includes/header.php");
             content: '';
             width: 50px;
             height: 4px;
-            background-color: #ff8800;
+            background-color: var(--color-primary);
             position: absolute;
             left: 50%;
             bottom: -10px;
@@ -1767,7 +1804,7 @@ include("includes/header.php");
 
         .btn-call,
         .btn-email {
-            background-color: #1f4c75;
+            background-color: var(--color-primary);
             color: white;
         }
 
@@ -1779,7 +1816,7 @@ include("includes/header.php");
 
         .btn-call:hover,
         .btn-email:hover {
-            background-color: #163655;
+            background-color: #9a1a2b;
         }
 
         .btn-whatsapp:hover {

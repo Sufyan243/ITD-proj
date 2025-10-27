@@ -73,7 +73,7 @@
 
 .btn-hero-cta {
     display: inline-block;
-    background: linear-gradient(135deg, #ff8800, #ff6600);
+    background: linear-gradient(135deg, #B31E32, #9a1a2b);
     color: #ffffff;
     padding: 18px 48px;
     font-size: 18px;
@@ -84,13 +84,13 @@
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(255, 136, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(179, 30, 50, 0.4);
     animation: fadeInUp 1.4s ease-out;
 }
 
 .btn-hero-cta:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(255, 136, 0, 0.6);
+    box-shadow: 0 12px 28px rgba(179, 30, 50, 0.6);
     color: #ffffff;
     text-decoration: none;
 }
@@ -222,9 +222,9 @@
 }
 
 .btn-machine-learn:hover {
-    background: linear-gradient(135deg, #ff8800, #ff6600);
+    background: linear-gradient(135deg, #B31E32, #9a1a2b);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 136, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(179, 30, 50, 0.4);
     text-decoration: none;
     color: #ffffff;
 }
@@ -243,7 +243,7 @@
     display: block;
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #ff8800, #345aca);
+    background: linear-gradient(90deg, #B31E32, #345aca);
     margin: 16px auto 0;
     border-radius: 2px;
 }
@@ -343,7 +343,7 @@
 
 .testimonial-quote-icon {
     font-size: 48px;
-    color: #ff8800;
+    color: #B31E32;
     opacity: 0.2;
     margin-bottom: 20px;
     line-height: 1;
@@ -372,7 +372,7 @@
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ff8800;
+    border: 3px solid #B31E32;
     flex-shrink: 0;
 }
 
@@ -412,14 +412,14 @@
 }
 
 .testimonials-swiper .swiper-pagination-bullet-active {
-    background: linear-gradient(135deg, #ff8800, #ff6600);
+    background: linear-gradient(135deg, #B31E32, #9a1a2b);
     width: 32px;
     border-radius: 6px;
 }
 
 .testimonials-swiper .swiper-button-prev,
 .testimonials-swiper .swiper-button-next {
-    color: #ff8800;
+    color: #B31E32;
     width: 44px;
     height: 44px;
     background: #ffffff;
@@ -430,7 +430,7 @@
 
 .testimonials-swiper .swiper-button-prev:hover,
 .testimonials-swiper .swiper-button-next:hover {
-    background: #ff8800;
+    background: #B31E32;
     color: #ffffff;
     transform: scale(1.1);
 }
@@ -538,10 +538,7 @@ h1, h2, h3, h4, h5, h6,
 body.has-hero {
     padding-top: 0;
 }
-
-body:not(.has-hero) {
-    padding-top: 80px;
-}
+ 
 
 /* Hero Section Styles */
 .hero h1 {
@@ -579,7 +576,7 @@ body:not(.has-hero) {
 }
 
 .product-categories button:hover {
-    background-color: #ff8800;
+    background-color: #B31E32;
     border-radius: 15px; /* Ensure the hover state also has rounded corners */
 }
 
@@ -704,7 +701,7 @@ body:not(.has-hero) {
 }
 
 .product-categories button:hover {
-    background-color: #ff8800;
+    background-color: #B31E32;
     transform: translateY(-2px);
 }
 
@@ -718,7 +715,7 @@ body:not(.has-hero) {
   }
 
   .button:hover {
-    background: linear-gradient(135deg, #ff8800, #ff6600);
+    background: linear-gradient(135deg, #B31E32, #9a1a2b);
   }
 
  
