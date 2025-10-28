@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #B31E32, #ab3f49ff);
+            background: #ffffff;
             background-size: cover;
             color: #333;
         }

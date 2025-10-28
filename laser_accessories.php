@@ -352,8 +352,8 @@ include("includes/header.php");
 
     <div class="page-content">
         <section class="about-section">
-            <h2 class="section-title"  style="color: #153170;">About HSG</h2>
-            <p class="about-text">Founded in 2006, HSG Laser is a high-tech enterprise specializing in the research, development, production, and sales of intelligent metal shaping equipment. The company is dedicated to providing metal shaping and automated production line solutions to global customers.</p>
+            <h2 class="section-title"  style="color: #153170;">Glorystar Laser</h2>
+            <p class="about-text">Glorystar Laser is a leading high-tech enterprise specializing in the research, development, and manufacturing of advanced fiber laser cutting machines. With over 20 years of innovation, the company provides intelligent metal cutting and automated production solutions used across more than 100 countries.</p>
             
             <div class="contact-btns-container">
              <a href="tel:03008227711" class="contact-btn btn-call">

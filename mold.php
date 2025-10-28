@@ -360,8 +360,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <section id="laser-cutting" class="products">
-        <h2 class="form-title" >About HSG</h2>
-        <p class="model-title-p"  >Founded in 2006, HSG Laser is a high-tech enterprise specializing in the research, development, production, and sales of intelligent metal shaping equipment. The company is dedicated to providing metal shaping and automated production line solutions to global customers.</p>
+        <h2 class="form-title" >Glorystar Laser</h2>
+        <p class="model-title-p"  >Glorystar Laser is a leading high-tech enterprise specializing in the research, development, and manufacturing of advanced fiber laser cutting machines. With over 20 years of innovation, the company provides intelligent metal cutting and automated production solutions used across more than 100 countries.</p>
           <div class="contact-btns-container">
         <a href="tel:03008227711" class="contact-btn btn-call">
             📞 Call

@@ -2003,11 +2003,11 @@ p {
             <div class="card-container">
                 <div class="card1 partner-card-enhanced">
                     <div class="partner-logo-container">
-                        <img src="New folder/hsg.jpg" alt="HSG Logo">
+                        <img src="New folder/image.png" alt="Glorystar Logo">
                     </div>
-                    <h3>HSG</h3>
+                    <h3>Glorystar</h3>
                     <div class="partner-badge" style="background-color:#8C1927 !important;">Official Distributor</div>
-                    <p>Founded in 2006, HSG Laser is a high-tech enterprise specializing in the research, development, production, and sales of intelligent metal shaping equipment. The company is dedicated to providing metal shaping and automated production line solutions to global customers.</p>
+                    <p>Glorystar Laser is a leading high-tech enterprise specializing in the research, development, and manufacturing of advanced fiber laser cutting machines. With over 20 years of innovation, the company provides intelligent metal cutting and automated production solutions used across more than 100 countries. </p>
                 </div>
                 <div class="card1 partner-card-enhanced">
                     <div class="partner-logo-container">
