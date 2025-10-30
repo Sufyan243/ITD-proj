@@ -2,7 +2,7 @@
         <div class="footer-main">
             <div class="footer-company">
                 <h3 class="section-title">About Us</h3>
-                <h2 class="company-name">INTERTRADE DISTRIBUTORS PVT LTD</h2>
+                <h2 class="company-name" style="color:white !important;">INTERTRADE DISTRIBUTORS PVT LTD</h2>
                 <p class="company-description">Explore our wide range of high-performance equipment tailored to meet your manufacturing needs.</p>
             </div>
             
@@ -43,7 +43,7 @@
                         <i class="fab fa-skype"></i>
                     </a>
                 </div>
-                <p style="color: #b8c5d1; font-size: 12px; margin-top: 8px;">fawad.k9</p>
+                <p style="color: #ffffff; font-size: 12px; margin-top: 8px;">fawad.k9</p>
             </div>
         </div>
         

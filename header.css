@@ -166,7 +166,8 @@
 
 .btn-get-quote:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px #8C1927;
+  box-shadow: 0 2px 10px #8C1927;
+  color: #ffffff !important;
 }
 
 .btn-get-quote:active {

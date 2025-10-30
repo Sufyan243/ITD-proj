@@ -144,14 +144,14 @@ include("includes/header.php");
 :root {
     --color-light: #FFF8EB; /* Creamy White - Main Background */
     --color-primary: #B31E32; /* Deep Red - Accent/Highlight */
-    --color-dark: #2a2a2a; /* Dark Color */
+    /* --color-dark: #2a2a2a; Dark Color */
     --color-text: #333; /* Standard Dark Text */
     --color-text-light: #666; /* Secondary Text */
 }
 
 /* Base Styles */
 body {
-    font-family: "Baskervville", serif !important;
+    font-family: 'Poppins', 'Montserrat', sans-serif !important;
     background-color: var(--color-light) !important; 
     color: var(--color-text);
     margin: 0;
@@ -660,8 +660,8 @@ p {
 
         .learn-more {
             border-radius: 17px;
-            border: 2px solid #345aca;
-            background-color: #345aca;
+            border: 2px solid  #B31E32 !important;
+            background-color: #B31E32 !important;
             color: #fff;
             display: inline-block;
             padding: 4px 10px;
@@ -1192,14 +1192,14 @@ p {
             .learn-more {
                 cursor: pointer;
                 padding: 10px 26px;
-                background-color: #345aca;
-                color: #fff;
+                /* background-color: #345aca; */
+                color: #B31E32 !important;
                 display: inline-block;
                 font-size: 13px;
                 line-height: 24px;
                 font-weight: 600;
                 border-radius: 40px;
-                border: 2px solid #345aca;
+                /* border: 2px solid #345aca; */
             }
         }
 
@@ -1839,6 +1839,42 @@ p {
                 width: 100%;
             }
         }
+
+        /* Card Spacing for Responsive */
+        @media (max-width: 991px) {
+            .product-center .col-12,
+            .product-center .col-sm-6,
+            .product-center .col-lg-4 {
+                padding: 0 15px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-center .row {
+                margin: 0;
+            }
+
+            .product-center .col-12 {
+                padding: 0 10px;
+                margin-bottom: 25px;
+            }
+
+            .product-center .card {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-center .col-12 {
+                padding: 0 15px;
+                margin-bottom: 30px;
+            }
+
+            .product-center .container-fluid {
+                padding: 0 20px;
+            }
+        }
     </style>
 
 
@@ -1881,9 +1917,9 @@ p {
                             <img src="crousel/gv.webp" alt="HSG Laser Cutting Machine" class="img-fluid">
                         </div>
                         <div class="card-body">
-                            <h3 class="text-title">HSG Laser Cutting Machine</h3>
+                            <h3 class="text-title" style="font-size: 30px !important;">HSG Laser Cutting Machine</h3>
                             <p class="text-ftitle">High-precision fiber laser cutting for metal sheets</p>
-                            <a class="learn-more" href="lasercutting.php">Learn More</a>
+                            <a class="learn-more" href="lasercutting.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1893,9 +1929,9 @@ p {
                             <img src="New folder/x7/x5.webp" alt="SYIL CNC Machining Centers" class="img-fluid">
                         </div>
                         <div class="card-body">
-                            <h3 class="text-title">SYIL CNC Machining Centers</h3>
+                            <h3 class="text-title" style="font-size: 30px !important;">SYIL CNC Machining Centers</h3>
                             <p class="text-ftitle">Advanced CNC milling and turning solutions</p>
-                            <a class="learn-more" href="cncmachine.php">Learn More</a>
+                            <a class="learn-more" href="cncmachine.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1905,9 +1941,9 @@ p {
                             <img src="products/bg.png" alt="SYIL Injection Moulding Machines" class="img-fluid">
                         </div>
                         <div class="card-body">
-                            <h3 class="text-title">SYIL Injection Moulding Machines</h3>
+                            <h3 class="text-title" style="font-size: 30px !important;">SYIL Injection Moulding Machines</h3>
                             <p class="text-ftitle">Precision plastic injection molding equipment</p>
-                            <a class="learn-more" href="injectionmoulding.php">Learn More</a>
+                            <a class="learn-more" href="injectionmoulding.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1935,7 +1971,7 @@ p {
                     <img src="injection m.jpg" class="d-block w-100" alt="Image 0">
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='injectionmoulding.php'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='injectionmoulding.php'" style="background-color: #B31E32">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>
@@ -1947,7 +1983,7 @@ p {
 
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='cncmachine.php'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='cncmachine.php'" style="background-color: #B31E32">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>
@@ -1958,7 +1994,7 @@ p {
                     <img src="crousel/gv_m (1).webp" class="d-block w-100" alt="Image 2">
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'" style="background-color: #B31E32">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>
@@ -1969,7 +2005,7 @@ p {
                     <img src="crousel/weldingm.jpg" class="d-block w-100" alt="Image 3">
                 </picture>
                 <div class="carousel-caption">
-                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'">Learn More</button>
+                    <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'" style="background-color: #B31E32">Learn More</button>
                     <button class="btn btn-secondary" onclick="window.location.href='#request-quote'">Inquiry</button>
                 </div>
             </div>

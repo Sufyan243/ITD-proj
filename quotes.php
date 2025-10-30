@@ -148,16 +148,145 @@ $next_order = $sort_order === 'ASC' ? 'DESC' : 'ASC';
         }
         a{
             text-decoration: none;
-                color: white;
+            color: white;
         }
         .btn-home + .btn-home {
-    margin-left: 10px;
-    background-color: #28a745; /* Green for variety */
-}
+            margin-left: 10px;
+            background-color: #28a745;
+        }
 
-.btn-home + .btn-home:hover {
-    background-color: #218838;
-}
+        .btn-home + .btn-home:hover {
+            background-color: #218838;
+        }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            body {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            .btn-home {
+                display: block;
+                width: 100%;
+                margin: 5px 0;
+                padding: 10px;
+            }
+
+            .btn-home + .btn-home {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .filter-input {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            .table-container {
+                padding: 10px;
+                overflow-x: scroll;
+            }
+
+            table {
+                font-size: 0.8rem;
+                min-width: 800px;
+            }
+
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.75rem;
+            }
+
+            .btn-delete {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .table-container {
+                padding: 8px;
+            }
+
+            table {
+                font-size: 0.7rem;
+                min-width: 700px;
+            }
+
+            th, td {
+                padding: 6px 4px;
+                font-size: 0.7rem;
+            }
+
+            .btn-home, .btn-delete {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .filter-input {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+
+            #scrollTopBtn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
 
     </style>
 </head>
@@ -212,7 +341,11 @@ $next_order = $sort_order === 'ASC' ? 'DESC' : 'ASC';
         </table>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">↑</button>
+
     <script>
+        // Filter functionality
         document.getElementById('filter-input').addEventListener('keyup', function() {
             var filter = this.value.toLowerCase();
             var rows = document.querySelectorAll('#quotes-table tbody tr');
@@ -220,6 +353,24 @@ $next_order = $sort_order === 'ASC' ? 'DESC' : 'ASC';
             rows.forEach(function(row) {
                 var match = row.textContent.toLowerCase().includes(filter);
                 row.style.display = match ? '' : 'none';
+            });
+        });
+
+        // Scroll to top functionality
+        var scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        };
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
