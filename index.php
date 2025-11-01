@@ -1914,11 +1914,11 @@ p {
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card card-portfolio text-center overflow-hidden">
                         <div class="card-img">
-                            <img src="crousel/gv.webp" alt="HSG Laser Cutting Machine" class="img-fluid">
+                            <img src="uploads/GS8.webp" alt=" Laser Cutting Machine" class="img-fluid">
                         </div>
                         <div class="card-body">
-                            <h3 class="text-title" style="font-size: 30px !important;">HSG Laser Cutting Machine</h3>
-                            <p class="text-ftitle">High-precision fiber laser cutting for metal sheets</p>
+                            <h3 class="text-title" style="font-size: 30px !important;"> GLORY STAR Fiber Laser Sheet Cutting Machine</h3>
+                            <p class="text-ftitle">Compact and enclosed design for efficient, safe, and streamlined workshops. </p>
                             <a class="learn-more" href="lasercutting.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
                         </div>
                     </div>
@@ -1938,11 +1938,11 @@ p {
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card card-portfolio text-center overflow-hidden">
                         <div class="card-img">
-                            <img src="products/bg.png" alt="SYIL Injection Moulding Machines" class="img-fluid">
+                            <img src="products\Mold Base\mold-plate.jpeg" alt="SYIL Injection Moulding Machines" class="img-fluid">
                         </div>
                         <div class="card-body">
-                            <h3 class="text-title" style="font-size: 30px !important;">SYIL Injection Moulding Machines</h3>
-                            <p class="text-ftitle">Precision plastic injection molding equipment</p>
+                            <h3 class="text-title" style="font-size: 30px !important;">GLORY STAR Mold Plate</h3>
+                            <p class="text-ftitle">Precision accessory for accurate and efficient mold shaping.</p>
                             <a class="learn-more" href="injectionmoulding.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
                         </div>
                     </div>
@@ -1989,9 +1989,9 @@ p {
             </div>
             <div class="carousel-item ">
                 <picture>
-                    <source media="(min-width: 768px)" srcset="crousel/gv.webp">
-                    <source media="(max-width: 767px)" srcset="crousel/gv_m (1).webp">
-                    <img src="crousel/gv_m (1).webp" class="d-block w-100" alt="Image 2">
+                    <source media="(min-width: 768px)" srcset="products\crouselbgyouzu.jpg">
+                    <source media="(max-width: 767px)" srcset="products\injecitonmoulding.png">
+                    <img src="products\injecitonmoulding.png" class="d-block w-100" alt="Image 2">
                 </picture>
                 <div class="carousel-caption">
                     <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'" style="background-color: #B31E32">Learn More</button>
@@ -2000,9 +2000,9 @@ p {
             </div>
             <div class="carousel-item">
                 <picture>
-                    <source media="(min-width: 768px)" srcset="crousel/weldingp.jpg">
-                    <source media="(max-width: 767px)" srcset="crousel/weldingm.jpg">
-                    <img src="crousel/weldingm.jpg" class="d-block w-100" alt="Image 3">
+                    <source media="(min-width: 768px)" srcset="products\sscrouselimg.jpg">
+                    <source media="(max-width: 767px)" srcset="products\youzucrouselmob.jpg">
+                    <img src="products\youzucrouselmob.jpg" class="d-block w-100" alt="Image 3">
                 </picture>
                 <div class="carousel-caption">
                     <button class="btn btn-primary" onclick="window.location.href='lasercutting.php'" style="background-color: #B31E32">Learn More</button>

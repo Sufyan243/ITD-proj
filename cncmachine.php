@@ -401,6 +401,20 @@ a:hover {
         right: 15px;
     }
 }
+.has-submenu {
+    position: relative;
+    display: inline-block;
+}
+
+.has-submenu::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 100%; height: 15px;
+    background: transparent;
+    z-index: 1;
+}
+
+.submenu { margin-top: -1px !important; }
       </style>
 </head>
 <body class="has-hero">
@@ -555,19 +569,21 @@ include 'includes/footer.php';
         const submenuToggles = document.querySelectorAll('header nav ul li');
     
         submenuToggles.forEach(function(submenuToggle) {
-            submenuToggle.addEventListener('mouseenter', function() {
-                const submenu = this.querySelector('.submenu');
-                if (submenu) {
-                    submenu.style.display = 'block';
-                }
-            });
-    
-            submenuToggle.addEventListener('mouseleave', function() {
-                const submenu = this.querySelector('.submenu');
-                if (submenu) {
-                    submenu.style.display = 'none';
-                }
-            });
+             submenuToggle.addEventListener('mouseenter', function() {
+    const submenu = this.querySelector('.submenu');
+    if (submenu) {
+        submenu.style.display = 'block';
+        submenu.style.pointerEvents = 'auto';
+    }
+});
+
+submenuToggle.addEventListener('mouseleave', function() {
+    const submenu = this.querySelector('.submenu');
+    if (submenu) {
+        submenu.style.display = 'none';
+        submenu.style.pointerEvents = 'none';
+    }
+});
         });
     });
     

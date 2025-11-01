@@ -465,7 +465,45 @@ include("includes/header.php");
                     display: none;
                 }
             }
-    </style>
+          
+
+.has-submenu {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background: #fff;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  z-index: 9999;
+  min-width: 220px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background-color: #f5f5f5;
+  color: #B31E32;
+}
+
+</style>
+    
+  
 </head>
 
 <body class="has-hero">
@@ -575,19 +613,20 @@ include("includes/header.php");
             const submenuToggles = document.querySelectorAll('header nav ul li');
 
             submenuToggles.forEach(function(submenuToggle) {
-                submenuToggle.addEventListener('mouseenter', function() {
-                    const submenu = this.querySelector('.submenu');
-                    if (submenu) {
-                        submenu.style.display = 'block';
-                    }
-                });
+             // Apply hover JS only if viewport is below 992px (mobile/tablet)
+if (window.innerWidth < 992) {
+  document.querySelectorAll('.has-submenu').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const s = item.querySelector('.submenu');
+      if (s) s.style.display = 'block';
+    });
+    item.addEventListener('mouseleave', () => {
+      const s = item.querySelector('.submenu');
+      if (s) s.style.display = 'none';
+    });
+  });
+}
 
-                submenuToggle.addEventListener('mouseleave', function() {
-                    const submenu = this.querySelector('.submenu');
-                    if (submenu) {
-                        submenu.style.display = 'none';
-                    }
-                });
             });
         });
     </script>

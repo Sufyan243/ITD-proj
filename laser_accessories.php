@@ -58,10 +58,13 @@ include("includes/header.php");
         }
 
         /* Main Content Container */
-        .page-content {
-            max-width: 1361px;
- 
-        }
+     .page-content {
+    max-width: 1361px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
 
         /* --- Hero Video Section (Keep as is for functionality) --- */
         .position-relative.hsg-about-video {
@@ -160,21 +163,22 @@ include("includes/header.php");
 }
 
         /* --- Product List Section (Laser Accessories) --- */
-        .product-list-section {
-            padding: 40px 20px;
-            text-align: center;
-        }
+     /* --- Product List Section --- */
+.product-list-section {
+    padding: 40px 0;
+    text-align: center;
+}
 
-        .product-list {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* each card min width 280px */
-          gap: 25px;
-          justify-items: center;
-          align-items: stretch;
-          padding: 20px;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0;
+}
 
         .product-item {
           background: #fff;

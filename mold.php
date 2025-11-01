@@ -3,27 +3,28 @@ include("includes/header.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".inquiry-button").forEach(button => {
-      button.addEventListener("click", () => {
-        window.open("https://wa.me/923008227711", "_blank");
-      });
-    });
-  });
-</script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".inquiry-button").forEach(button => {
+                button.addEventListener("click", () => {
+                    window.open("https://wa.me/923008227711", "_blank");
+                });
+            });
+        });
+    </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16630851493">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16630851493">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'AW-16630851493');
-</script>
+        gtag('config', 'AW-16630851493');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laser Cutting</title>
@@ -36,299 +37,350 @@ include("includes/header.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
     <style>
-  /* Custom Properties for Theme Colors */
-:root {
-    --primary-color: #B31E32; /* Deep Red/Maroon */
-    --secondary-color: #FFF8EB; /* Off-White/Creamy Background */
-    --text-color: #333333;
-    --light-text-color: #ffffff;
-    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
+        /* Custom Properties for Theme Colors */
+        :root {
+            --primary-color: #B31E32;
+            /* Deep Red/Maroon */
+            --secondary-color: #FFF8EB;
+            /* Off-White/Creamy Background */
+            --text-color: #333333;
+            --light-text-color: #ffffff;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
 
-/* Base Styles */
-body {
-    font-family: "Baskervville", serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: var(--secondary-color); /* Theme background color */
-    color: var(--text-color);
-}
+        /* Base Styles */
+        body {
+            font-family: "Baskervville", serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--secondary-color);
+            /* Theme background color */
+            color: var(--text-color);
+        }
 
-h2 {
-    color: var(--primary-color) !important; /* Applying primary color to section titles */
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.5rem;
+        h2 {
+            color: var(--primary-color) !important;
+            /* Applying primary color to section titles */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            position: relative;
+            padding-top: 20px;
+            font-weight: 700;
+            margin-top: 0;
+            line-height: 1.2;
+
+        }
+
+        h2.form-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        p,
+        li,
+        a {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* --- Video/Hero Section Styles --- */
+        .hsg-about-video {
+            overflow: hidden;
+            height: 50vh;
+            /* Control video height */
+            margin-bottom: 30px;
+        }
+
+        .hsg-about-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures video covers the area without distortion */
+        }
+
+        /* --- About HSG Section (Products Section used for structure) --- */
+        .products {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .model-title-p {
+            color: var(--text-color);
+            margin: 1.5rem auto 3rem;
+            font-size: 1.25rem;
+            max-width: 800px;
+        }
+
+        /* --- Contact Buttons --- */
+        .contact-btns-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: 2px solid transparent;
+            cursor: pointer;
+            border-radius: 50px;
+            /* Pill shape for modern look */
+            transition: all 0.3s ease;
+            text-decoration: none;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .btn-call,
+        .btn-email {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            box-shadow: 0 4px 8px rgba(179, 30, 50, 0.4);
+        }
+
+        .btn-call:hover,
+        .btn-email:hover {
+            background-color: #8c1726;
+            /* Slightly darker shade */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(179, 30, 50, 0.6);
+            color: #e5e0d4;
+        }
+
+        .btn-whatsapp {
+            border-color: #25D366;
+            color: #25D366;
+            background-color: var(--secondary-color);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #25D366;
+            color: var(--light-text-color);
+            border-color: #25D366;
+            transform: translateY(-2px);
+        }
+
+        .icon {
+            font-size: 1.1rem;
+        }
+
+        /* --- Product List Styles (Mold Bases Section) --- */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* each card min width 280px */
+            gap: 25px;
+            justify-items: center;
+            align-items: stretch;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            /* full width in grid cell */
+            max-width: 320px;
+            /* control card width */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            /* Dark text for machine name */
+        }
+
+        .product-item p {
+            font-size: 0.95rem;
+            color: #666;
+            text-align: left;
+            padding: 0 5px;
+            flex-grow: 1;
+            /* Pushes button group to the bottom */
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-item .button-group {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .inquiry-button {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 10px 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .inquiry-button:hover {
+            background-color: #8c1726;
+            border-color: #8c1726;
+        }
+
+
+
+        @media (max-width: 992px) {
+            .product-list {
+                /* On medium screens, 2 columns of min 300px width */
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            h2.form-title {
+                font-size: 2rem;
+            }
+
+            .product-list {
+                /* On small screens, now 2 equal columns for better layout */
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .product-item {
+                padding: 15px;
+            }
+
+            .product-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .product-item p {
+                font-size: 0.85rem;
+            }
+
+            .inquiry-button {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+
+            .contact-btn {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .hsg-about-video {
+                height: 35vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-list {
+                grid-template-columns: 1fr;
+                /* Single column on mobile */
+            }
+
+            .inquiry-button {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .hsg-about-video {
+                height: 30vh;
+            }
+        }
+
+        /* Removing old, unneeded styles for a clean slate */
+        .button,
+        .footer,
+        .logo-section,
+        .hero,
+        .whatsapp-float {
+            /* These elements are likely part of the header/footer you are removing or are better handled in external files */
+            /* Keeping them out of this specific CSS for a clean, modern page body. */
+        }
+
+        .submenu {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 9999;
+        }
+
+        .has-submenu {
     position: relative;
-    padding-top: 20px;
-      font-weight: 700;
-    margin-top: 0;
-    line-height: 1.2;
-
-}
-
-h2.form-title::after {
-    content: '';
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary-color);
-    position: absolute;
-    left: 50%;
-    bottom: -10px;
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
-
-p, li, a {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* --- Video/Hero Section Styles --- */
-.hsg-about-video {
-    overflow: hidden;
-    height: 50vh; /* Control video height */
-    margin-bottom: 30px;
-}
-
-.hsg-about-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures video covers the area without distortion */
-}
-
-/* --- About HSG Section (Products Section used for structure) --- */
-.products {
-    padding: 40px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.model-title-p {
-    color: var(--text-color);
-    margin: 1.5rem auto 3rem;
-    font-size: 1.25rem;
-    max-width: 800px;
-}
-
-/* --- Contact Buttons --- */
-.contact-btns-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-}
-
-.contact-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    border: 2px solid transparent;
-    cursor: pointer;
-    border-radius: 50px; /* Pill shape for modern look */
-    transition: all 0.3s ease;
-    text-decoration: none;
-    min-width: 180px;
-    text-align: center;
-}
-
-.btn-call, .btn-email {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    box-shadow: 0 4px 8px rgba(179, 30, 50, 0.4);
-}
-
-.btn-call:hover, .btn-email:hover {
-    background-color: #8c1726; /* Slightly darker shade */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(179, 30, 50, 0.6);
-    color: #e5e0d4;
-}
-
-.btn-whatsapp {
-    border-color: #25D366;
-    color: #25D366;
-    background-color: var(--secondary-color);
-}
-
-.btn-whatsapp:hover {
-    background-color: #25D366;
-    color: var(--light-text-color);
-    border-color: #25D366;
-    transform: translateY(-2px);
-}
-
-.icon {
-    font-size: 1.1rem;
-}
-
-/* --- Product List Styles (Mold Bases Section) --- */
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* each card min width 280px */
-  gap: 25px;
-  justify-items: center;
-  align-items: stretch;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.product-item {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 20px;
-  width: 100%;                /* full width in grid cell */
-  max-width: 320px;           /* control card width */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.product-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.product-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.product-item h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem; 
-    color: var(--text-color); /* Dark text for machine name */
-}
-
-.product-item p {
-    font-size: 0.95rem; 
-    color: #666; 
-    text-align: left; 
-    padding: 0 5px;
-    flex-grow: 1; /* Pushes button group to the bottom */
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.product-item .button-group {
-    margin-top: auto; 
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.inquiry-button {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 10px 15px;
-    border: 2px solid var(--primary-color);
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: all 0.3s;
-    text-decoration: none;
     display: inline-block;
 }
 
-.inquiry-button:hover {
-    background-color: #8c1726;
-    border-color: #8c1726;
+.has-submenu::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 100%; height: 15px;
+    background: transparent;
+    z-index: 1;
 }
 
+.submenu { margin-top: -1px !important; }
+    </style>
 
-
-@media (max-width: 992px) {
-    .product-list {
-        /* On medium screens, 2 columns of min 300px width */
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    h2.form-title {
-        font-size: 2rem;
-    }
-    
-    .product-list {
-        /* On small screens, now 2 equal columns for better layout */
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px;
-    }
-    
-    .product-item {
-        padding: 15px;
-    }
-
-    .product-item h3 {
-        font-size: 1.2rem;
-    }
-    
-    .product-item p {
-        font-size: 0.85rem;
-    }
-
-    .inquiry-button {
-        padding: 8px 10px;
-        font-size: 0.8rem;
-    }
-
-    .contact-btn {
-        width: 100%;
-        min-width: unset;
-    }
-
-    .hsg-about-video {
-        height: 35vh;
-    }
-}
-
-@media (max-width: 480px) {
-    .product-list {
-        grid-template-columns: 1fr; /* Single column on mobile */
-    }
-    
-    .inquiry-button {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-    }
-    
-    .hsg-about-video {
-        height: 30vh;
-    }
-}
-
-/* Removing old, unneeded styles for a clean slate */
-.button, .footer, .logo-section, .hero, .whatsapp-float {
-    /* These elements are likely part of the header/footer you are removing or are better handled in external files */
-    /* Keeping them out of this specific CSS for a clean, modern page body. */
-}
-
-      </style>
-    
 </head>
+
 <body class="has-hero">
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVK9FF5C" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- <header>
         <div class="logo">
             <img src="products/Logos-01.jpg" alt="HSG Logo">
@@ -353,64 +405,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </nav>
     </header> -->
     <a href="https://wa.me/+923008227711" class="whatsapp-float" target="_blank">
-    <img src="wp icon.png" alt="Chat with us on WhatsApp">
-</a>
+        <img src="wp icon.png" alt="Chat with us on WhatsApp">
+    </a>
     <div class="position-relative hsg-about-video">
-        <video data-src="New folder/about.mp4"  preload="metadata" autoplay="autoplay" loop="loop" muted="muted" webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline" x-webkit-airplay="allow" src="New folder/about.mp4" ></video>
+        <video data-src="New folder/about.mp4" preload="metadata" autoplay="autoplay" loop="loop" muted="muted"
+            webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline"
+            x-webkit-airplay="allow" src="New folder/about.mp4"></video>
     </div>
-    
+
     <section id="laser-cutting" class="products">
-        <h2 class="form-title" >Glorystar Laser</h2>
-        <p class="model-title-p"  >Glorystar Laser is a leading high-tech enterprise specializing in the research, development, and manufacturing of advanced fiber laser cutting machines. With over 20 years of innovation, the company provides intelligent metal cutting and automated production solutions used across more than 100 countries.</p>
-          <div class="contact-btns-container">
-        <a href="tel:03008227711" class="contact-btn btn-call">
-            📞 Call
-        </a>
-        <a href="mailto: itdtech2004@gmail.com" class="contact-btn btn-email">
-            ✉️ Email
-        </a>
-        <a href="https://wa.me/03008227711" class="contact-btn btn-whatsapp">
-            WhatsApp
-        </a>
-    </div>
-        <h2  class="form-title">Mold Bases</h2>
- 
-      <div class="product-list">
-<div class="product-list">
-  <?php
-  include 'db_connection.php';
-  $category = 'mold'; // category column in your cards table
-  $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
+        <h2 class="form-title">Glorystar Laser</h2>
+        <p class="model-title-p">Glorystar Laser is a leading high-tech enterprise specializing in the research,
+            development, and manufacturing of advanced fiber laser cutting machines. With over 20 years of innovation,
+            the company provides intelligent metal cutting and automated production solutions used across more than 100
+            countries.</p>
+        <div class="contact-btns-container">
+            <a href="tel:03008227711" class="contact-btn btn-call">
+                📞 Call
+            </a>
+            <a href="mailto: itdtech2004@gmail.com" class="contact-btn btn-email">
+                ✉️ Email
+            </a>
+            <a href="https://wa.me/03008227711" class="contact-btn btn-whatsapp">
+                WhatsApp
+            </a>
+        </div>
+        <h2 class="form-title">Mold Bases</h2>
 
-  if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-      ?>
-      <div class="product-item">
-        <img src="<?= htmlspecialchars($row['image']); ?>" alt="<?= htmlspecialchars($row['title']); ?>">
-        <h3><?= htmlspecialchars($row['title']); ?></h3>
+        <div class="product-list">
+            <div class="product-list">
+                <?php
+                include 'db_connection.php';
+                $category = 'mold'; // category column in your cards table
+                $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
 
-        <?php if (!empty($row['description'])): ?>
-          <p class="product-description"><?= nl2br(htmlspecialchars($row['description'])); ?></p>
-        <?php endif; ?>
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="product-item">
+                            <img src="<?= htmlspecialchars($row['image']); ?>" alt="<?= htmlspecialchars($row['title']); ?>">
+                            <h3><?= htmlspecialchars($row['title']); ?></h3>
 
-        <button class="inquiry-button">Inquiry</button>
-      </div>
-      <?php
-    }
-  } else {
-    echo "<p style='text-align:center;'>No mold products available yet.</p>";
-  }
-  ?>
-</div>
+                            <?php if (!empty($row['description'])): ?>
+                                <p class="product-description"><?= nl2br(htmlspecialchars($row['description'])); ?></p>
+                            <?php endif; ?>
 
-</div>
+                            <button class="inquiry-button">Inquiry</button>
+                        </div>
+                        <?php
+                    }
+                } else {
+                    echo "<p style='text-align:center;'>No mold products available yet.</p>";
+                }
+                ?>
+            </div>
+
+        </div>
 
     </section>
-       
-   <?php 
-include 'includes/ContactForm.php';
-include 'includes/footer.php';
-?>
+
+    <?php
+    include 'includes/ContactForm.php';
+    include 'includes/footer.php';
+    ?>
     <!-- <section class="quote">
         <form id="request-quote" class="quote-form" action="submit_quote.php" method="post">
             <h2 class="form-title">Request A Quote</h2>
@@ -516,282 +573,285 @@ include 'includes/footer.php';
     </footer> -->
 </body>
 
-   <script>
-            // Mobile menu toggle
-const navToggle = document.querySelector('.nav-toggle');
-const mobilePanel = document.getElementById('mobile-panel');
-const navOverlay = document.querySelector('.nav-overlay');
-const mobileClose = document.querySelector('.mobile-close');
-
-function openMenu() {
-  navToggle.setAttribute('aria-expanded', 'true');
-  mobilePanel.setAttribute('aria-hidden', 'false');
-  navOverlay.classList.add('active');
-  document.body.classList.add('nav-open');
-}
-
-function closeMenu() {
-  navToggle.setAttribute('aria-expanded', 'false');
-  mobilePanel.setAttribute('aria-hidden', 'true');
-  navOverlay.classList.remove('active');
-  document.body.classList.remove('nav-open');
-}
-
-navToggle.addEventListener('click', openMenu);
-mobileClose.addEventListener('click', closeMenu);
-navOverlay.addEventListener('click', closeMenu);
-            document.addEventListener('DOMContentLoaded', function() {
-                new Swiper('.testimonials-swiper', {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    loop: true,
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
-                    },
-                    breakpoints: {
-                        768: {
-                            slidesPerView: 2
-                        },
-                        1024: {
-                            slidesPerView: 3
-                        }
-                    }
-                });
-            });
-        </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-    
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('open');
-        });
-    
-        const submenuToggles = document.querySelectorAll('header nav ul li');
-    
-        submenuToggles.forEach(function(submenuToggle) {
-            submenuToggle.addEventListener('mouseenter', function() {
-                const submenu = this.querySelector('.submenu');
-                if (submenu) {
-                    submenu.style.display = 'block';
-                }
-            });
-    
-            submenuToggle.addEventListener('mouseleave', function() {
-                const submenu = this.querySelector('.submenu');
-                if (submenu) {
-                    submenu.style.display = 'none';
-                }
-            });
-        });
-    });
-    
-        </script>
-   <script>
-       document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
     const navToggle = document.querySelector('.nav-toggle');
     const mobilePanel = document.getElementById('mobile-panel');
     const navOverlay = document.querySelector('.nav-overlay');
     const mobileClose = document.querySelector('.mobile-close');
-    const header = document.querySelector('.site-header');
 
-    // Enhanced mobile menu toggle
-    function openMobileMenu() {
+    function openMenu() {
         navToggle.setAttribute('aria-expanded', 'true');
         mobilePanel.setAttribute('aria-hidden', 'false');
         navOverlay.classList.add('active');
         document.body.classList.add('nav-open');
-        document.body.style.overflow = 'hidden';
     }
 
-    function closeMobileMenu() {
+    function closeMenu() {
         navToggle.setAttribute('aria-expanded', 'false');
         mobilePanel.setAttribute('aria-hidden', 'true');
         navOverlay.classList.remove('active');
         document.body.classList.remove('nav-open');
-        document.body.style.overflow = '';
-        
-        // Close all open submenus when closing main menu
-        document.querySelectorAll('.mobile-submenu.expanded').forEach(submenu => {
-            submenu.classList.remove('expanded');
-            submenu.previousElementSibling.setAttribute('aria-expanded', 'false');
-        });
     }
 
-    // Event listeners for menu open/close
-    navToggle.addEventListener('click', openMobileMenu);
-    mobileClose.addEventListener('click', closeMobileMenu);
-    navOverlay.addEventListener('click', closeMobileMenu);
-
-    // Close menu on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobilePanel.getAttribute('aria-hidden') === 'false') {
-            closeMobileMenu();
-        }
+    navToggle.addEventListener('click', openMenu);
+    mobileClose.addEventListener('click', closeMenu);
+    navOverlay.addEventListener('click', closeMenu);
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                }
+            }
+        });
     });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
 
-    // Mobile submenu toggles
-    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            const submenu = this.nextElementSibling;
-            
-            // Close other open submenus (accordion behavior)
-            document.querySelectorAll('.submenu-toggle').forEach(otherToggle => {
-                if (otherToggle !== this && otherToggle.getAttribute('aria-expanded') === 'true') {
-                    otherToggle.setAttribute('aria-expanded', 'false');
-                    otherToggle.nextElementSibling.classList.remove('expanded');
+        navToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('open');
+        });
+
+        const submenuToggles = document.querySelectorAll('header nav ul li');
+
+        submenuToggles.forEach(function (submenuToggle) {
+            submenuToggle.addEventListener('mouseenter', function () {
+                const submenu = this.querySelector('.submenu');
+                if (submenu) {
+                    submenu.style.display = 'block';
+                    submenu.style.pointerEvents = 'auto';
                 }
             });
-            
-            // Toggle current submenu
-            this.setAttribute('aria-expanded', !isExpanded);
-            submenu.classList.toggle('expanded');
+
+            submenuToggle.addEventListener('mouseleave', function () {
+                const submenu = this.querySelector('.submenu');
+                if (submenu) {
+                    submenu.style.display = 'none';
+                    submenu.style.pointerEvents = 'none';
+                }
+            });
         });
     });
 
-    // Header scroll effect
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        lastScrollTop = scrollTop;
-    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navToggle = document.querySelector('.nav-toggle');
+        const mobilePanel = document.getElementById('mobile-panel');
+        const navOverlay = document.querySelector('.nav-overlay');
+        const mobileClose = document.querySelector('.mobile-close');
+        const header = document.querySelector('.site-header');
 
- 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Skip if it's just a placeholder (#products, #, etc.)
-            if (href === '#' || href === '#products') {
-                e.preventDefault();
-                return;
+        // Enhanced mobile menu toggle
+        function openMobileMenu() {
+            navToggle.setAttribute('aria-expanded', 'true');
+            mobilePanel.setAttribute('aria-hidden', 'false');
+            navOverlay.classList.add('active');
+            document.body.classList.add('nav-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            navToggle.setAttribute('aria-expanded', 'false');
+            mobilePanel.setAttribute('aria-hidden', 'true');
+            navOverlay.classList.remove('active');
+            document.body.classList.remove('nav-open');
+            document.body.style.overflow = '';
+
+            // Close all open submenus when closing main menu
+            document.querySelectorAll('.mobile-submenu.expanded').forEach(submenu => {
+                submenu.classList.remove('expanded');
+                submenu.previousElementSibling.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        // Event listeners for menu open/close
+        navToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+        navOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && mobilePanel.getAttribute('aria-hidden') === 'false') {
+                closeMobileMenu();
             }
-            
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+        });
+
+        // Mobile submenu toggles
+        document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                const submenu = this.nextElementSibling;
+
+                // Close other open submenus (accordion behavior)
+                document.querySelectorAll('.submenu-toggle').forEach(otherToggle => {
+                    if (otherToggle !== this && otherToggle.getAttribute('aria-expanded') === 'true') {
+                        otherToggle.setAttribute('aria-expanded', 'false');
+                        otherToggle.nextElementSibling.classList.remove('expanded');
+                    }
                 });
-                
-                // Close mobile menu if open
-                if (mobilePanel.getAttribute('aria-hidden') === 'false') {
-                    closeMobileMenu();
+
+                // Toggle current submenu
+                this.setAttribute('aria-expanded', !isExpanded);
+                submenu.classList.toggle('expanded');
+            });
+        });
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+
+                // Skip if it's just a placeholder (#products, #, etc.)
+                if (href === '#' || href === '#products') {
+                    e.preventDefault();
+                    return;
                 }
-            }
-        });
-    });
 
-    // Close mobile menu when clicking on regular links
-    document.querySelectorAll('.mobile-submenu a, .nav-menu-vertical > li > a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (mobilePanel.getAttribute('aria-hidden') === 'false') {
-                setTimeout(() => closeMobileMenu(), 150);
-            }
-        });
-    });
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
 
-    // Active link highlighting based on current page
-    function updateActiveLink() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.php';
-        
-        // Update desktop nav
-        document.querySelectorAll('.nav-menu a, .submenu a').forEach(link => {
-            link.classList.remove('active');
-            const linkHref = link.getAttribute('href');
-            
-            if (linkHref === currentPage || 
-                (currentPage === '' && linkHref === 'index.php') ||
-                (currentPage === 'index.php' && linkHref === 'index.php')) {
-                link.classList.add('active');
-            }
+                    // Close mobile menu if open
+                    if (mobilePanel.getAttribute('aria-hidden') === 'false') {
+                        closeMobileMenu();
+                    }
+                }
+            });
         });
-        
-        // Update mobile nav
-        document.querySelectorAll('.nav-menu-vertical a, .mobile-submenu a').forEach(link => {
-            link.classList.remove('active');
-            const linkHref = link.getAttribute('href');
-            
-            if (linkHref === currentPage || 
-                (currentPage === '' && linkHref === 'index.php') ||
-                (currentPage === 'index.php' && linkHref === 'index.php')) {
-                link.classList.add('active');
-            }
+
+        // Close mobile menu when clicking on regular links
+        document.querySelectorAll('.mobile-submenu a, .nav-menu-vertical > li > a').forEach(link => {
+            link.addEventListener('click', function () {
+                if (mobilePanel.getAttribute('aria-hidden') === 'false') {
+                    setTimeout(() => closeMobileMenu(), 150);
+                }
+            });
         });
-    }
 
-    // Update active link on page load
-    updateActiveLink();
+        // Active link highlighting based on current page
+        function updateActiveLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.php';
 
-    // Optional: Active link highlighting based on scroll position for single-page sections
-    const sections = document.querySelectorAll('section[id]');
-    
-    if (sections.length > 0) {
-        function updateActiveSection() {
-            let current = '';
-            const scrollPosition = window.pageYOffset + 150;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
+            // Update desktop nav
+            document.querySelectorAll('.nav-menu a, .submenu a').forEach(link => {
+                link.classList.remove('active');
+                const linkHref = link.getAttribute('href');
+
+                if (linkHref === currentPage ||
+                    (currentPage === '' && linkHref === 'index.php') ||
+                    (currentPage === 'index.php' && linkHref === 'index.php')) {
+                    link.classList.add('active');
                 }
             });
 
-            document.querySelectorAll('.nav-menu a[href^="#"], .nav-menu-vertical a[href^="#"]').forEach(link => {
+            // Update mobile nav
+            document.querySelectorAll('.nav-menu-vertical a, .mobile-submenu a').forEach(link => {
                 link.classList.remove('active');
-                const href = link.getAttribute('href');
-                
-                if (href === `#${current}`) {
+                const linkHref = link.getAttribute('href');
+
+                if (linkHref === currentPage ||
+                    (currentPage === '' && linkHref === 'index.php') ||
+                    (currentPage === 'index.php' && linkHref === 'index.php')) {
                     link.classList.add('active');
                 }
             });
         }
 
-        window.addEventListener('scroll', updateActiveSection);
-    }
+        // Update active link on page load
+        updateActiveLink();
 
-    // Prevent clicks on desktop dropdown parent from navigating
-    document.querySelectorAll('.nav-desktop .has-submenu > a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (this.getAttribute('href') === '#products' || this.getAttribute('href') === '#') {
-                e.preventDefault();
+        // Optional: Active link highlighting based on scroll position for single-page sections
+        const sections = document.querySelectorAll('section[id]');
+
+        if (sections.length > 0) {
+            function updateActiveSection() {
+                let current = '';
+                const scrollPosition = window.pageYOffset + 150;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-menu a[href^="#"], .nav-menu-vertical a[href^="#"]').forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+
+                    if (href === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
+
+            window.addEventListener('scroll', updateActiveSection);
+        }
+
+        // Prevent clicks on desktop dropdown parent from navigating
+        document.querySelectorAll('.nav-desktop .has-submenu > a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#products' || this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                }
+            });
         });
     });
-});
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.btn-secondary').forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    document.querySelector('#request-quote').scrollIntoView({
-                        behavior: 'smooth'
-                    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.btn-secondary').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.querySelector('#request-quote').scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
-    </script>
-</html> 
+    });
+</script>
+
+</html>
