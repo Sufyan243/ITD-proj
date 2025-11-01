@@ -350,9 +350,10 @@ include("includes/header.php");
         <img src="wp icon.png" alt="Chat with us on WhatsApp">
     </a>
 
-    <div class="position-relative hsg-about-video">
-        <video data-src="New folder/about.mp4" preload="metadata" autoplay="autoplay" loop="loop" muted="muted" webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline" x-webkit-airplay="allow" src="New folder/about.mp4" ></video>
-    </div>
+   <div class="position-relative hsg-about-video">
+  <img src="products/laseraccessories.jpg" alt="Laser Accessories" style="width:100%; height:auto; display:block; object-fit:cover;">
+</div>
+
 
     <div class="page-content">
         <section class="about-section">

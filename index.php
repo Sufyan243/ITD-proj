@@ -1877,7 +1877,95 @@ p {
         }
     </style>
 
+<style>
+    /* -------------------------------------------------
+   TOP MACHINES SECTION – 3 rows, left image / right text
+   ------------------------------------------------- */
+.top-machines-section {
+    padding: 60px 0;
+    background: var(--color-light);
+}
+.top-machines-section .new-title {
+    margin-bottom: 50px;
+}
 
+/* ---- Row container ---- */
+.tm-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+/* ---- Image column ---- */
+/* ---- Image column – KEEP IMAGE INSIDE BORDERS ---- */
+.tm-img {
+    flex: 0 0 45%;               /* same as before */
+    max-width: 45%;
+    overflow: hidden;            /* safety net */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tm-img img {
+    width: 100%;                 /* fill the column */
+    height: auto;                /* keep aspect ratio */
+    max-width: 100%;             /* never overflow */
+    max-height: 100%;            /* never taller than column */
+    object-fit: contain;         /* show whole image, add letter-box if needed */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+/* ---- Text column ---- */
+.tm-text {
+    flex: 1;                     /* takes the rest */
+    padding-left: 20px;
+}
+.tm-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+.tm-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+.tm-btn {
+    display: inline-block;
+    padding: 10px 26px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: 40px;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+.tm-btn:hover {
+    background: #9a1a2b;
+    border-color: #9a1a2b;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 991px) {
+    .tm-img,
+    .tm-text { flex: 0 0 100%; max-width: 100%; }
+    .tm-text { padding-left: 0; text-align: center; }
+    .tm-img { margin-bottom: 20px; }
+    .tm-heading { font-size: 26px; }
+}
+@media (max-width: 576px) {
+    .tm-heading { font-size: 22px; }
+    .tm-btn { font-size: 16px; padding: 8px 20px; }
+}
+</style>
 
 </head>
 
@@ -1907,49 +1995,55 @@ p {
     </section>
     
     <!-- Our Top Machines Section -->
-    <section id="products" class="center-section product-center">
-        <div class="container-fluid">
-            <h1 class="new-title">Our Top Machines</h1>
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card card-portfolio text-center overflow-hidden">
-                        <div class="card-img">
-                            <img src="uploads/GS8.webp" alt=" Laser Cutting Machine" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="text-title" style="font-size: 30px !important;"> GLORY STAR Fiber Laser Sheet Cutting Machine</h3>
-                            <p class="text-ftitle">Compact and enclosed design for efficient, safe, and streamlined workshops. </p>
-                            <a class="learn-more" href="lasercutting.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card card-portfolio text-center overflow-hidden">
-                        <div class="card-img">
-                            <img src="New folder/x7/x5.webp" alt="SYIL CNC Machining Centers" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="text-title" style="font-size: 30px !important;">SYIL CNC Machining Centers</h3>
-                            <p class="text-ftitle">Advanced CNC milling and turning solutions</p>
-                            <a class="learn-more" href="cncmachine.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card card-portfolio text-center overflow-hidden">
-                        <div class="card-img">
-                            <img src="products\Mold Base\mold-plate.jpeg" alt="SYIL Injection Moulding Machines" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="text-title" style="font-size: 30px !important;">GLORY STAR Mold Plate</h3>
-                            <p class="text-ftitle">Precision accessory for accurate and efficient mold shaping.</p>
-                            <a class="learn-more" href="injectionmoulding.php" style="background-color: #FFF !important; font-size:18px; color: #B31E32 !important">Learn More</a>
-                        </div>
-                    </div>
-                </div>
+<section id="products" class="top-machines-section">
+    <div class="container-fluid">
+
+        <h1 class="new-title">Our Top Machines</h1>
+
+        <!-- ==== ROW 1 ==== -->
+        <div class="tm-row">
+            <div class="tm-img">
+                <img src="uploads/GS8.webp" alt="GLORY STAR Fiber Laser Sheet Cutting Machine" class="img-fluid">
+            </div>
+         <div class="tm-text">
+    <h3 class="tm-heading">GLORY STAR Fiber Laser Sheet Cutting Machine</h3>
+    <p class="tm-desc">
+        High-precision fiber laser cutting system featuring an enclosed, space-saving design for safer, faster, and more efficient metal fabrication.
+    </p>
+    <a href="lasercutting.php" class="tm-btn">Learn More</a>
+</div>
+</div>
+
+<!-- ==== ROW 2 ==== -->
+<div class="tm-row">
+    <div class="tm-img">
+        <img src="New folder/x7/x5.webp" alt="SYIL CNC Machining Centers" class="img-fluid">
+    </div>
+    <div class="tm-text">
+        <h3 class="tm-heading">SYIL CNC Machining Centers</h3>
+        <p class="tm-desc">
+            Precision-built CNC milling and turning centers designed for high accuracy, reliability, and productivity across industrial applications.
+        </p>
+        <a href="cncmachine.php" class="tm-btn">Learn More</a>
+    </div>
+</div>
+
+        </div>
+
+        <!-- ==== ROW 3 ==== -->
+        <div class="tm-row">
+            <div class="tm-img">
+                <img src="products\sls1nobg.png" alt="img" class="img-fluid">
+            </div>
+            <div class="tm-text">
+                <h3 class="tm-heading">SS Machinery Injection Moulding Machine (SSF720-K5)</h3>
+                <p class="tm-desc">Precision-engineered 720 kN clamp-force injection moulding machine delivering high-repeatability parts up to 100 g with superior cycle-stability and industrial durability.</p>
+                <a href="injectionmoulding.php" class="tm-btn">Learn More</a>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
     
     <a href="https://wa.me/923008227711" class="whatsapp-float" target="_blank">
         <img src="wp icon.png" alt="Chat with us on WhatsApp">

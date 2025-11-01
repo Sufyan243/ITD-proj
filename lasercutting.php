@@ -465,8 +465,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <img src="wp icon.png" alt="Chat with us on WhatsApp">
 </a>
     <div class="position-relative hsg-about-video">
-        <video data-src="New folder/about.mp4"  preload="metadata" autoplay="autoplay" loop="loop" muted="muted" webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline" x-webkit-airplay="allow" src="New folder/about.mp4" ></video>
-    </div>
+  <img src="products\lasercuttingbg.jpg" alt="Laser Accessories" style="width:100%; height:50%; display:block; object-fit:cover;">
+</div>
     
     <section id="laser-cutting" class="products">
      <h2 class="form-title" style="color: #153170;">About Glorystar Laser</h2>

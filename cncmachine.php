@@ -448,9 +448,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="https://wa.me/+923008227711" class="whatsapp-float" target="_blank">
     <img src="wp icon.png" alt="Chat with us on WhatsApp">
 </a>
-    <div class="position-relative hsg-about-video">
-        <video data-src="New folder/syil.mp4"  preload="metadata" autoplay="autoplay" loop="loop" muted="muted" webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline" x-webkit-airplay="allow" src="New folder/syil.mp4" ></video>
-    </div>
+   <div class="position-relative hsg-about-video">
+  <img src="products\cncmachine.jpg" alt="Laser Accessories" style="width:100%; height:50%; display:block; object-fit:cover;">
+</div>
+
     <section id="injection" class="products">
         <h2 class="form-title" style="color: #153170;">About SYIL</h2>
         <p class="model-title-p"  >At SYIL, our mission is to design and manufacture top-quality, affordable CNC machines tailored for small business owners. We are dedicated to providing accessible and reliable machinery that empowers entrepreneurs to thrive in their industries.</p>

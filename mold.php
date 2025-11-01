@@ -408,10 +408,9 @@ include("includes/header.php");
         <img src="wp icon.png" alt="Chat with us on WhatsApp">
     </a>
     <div class="position-relative hsg-about-video">
-        <video data-src="New folder/about.mp4" preload="metadata" autoplay="autoplay" loop="loop" muted="muted"
-            webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline"
-            x-webkit-airplay="allow" src="New folder/about.mp4"></video>
-    </div>
+  <img src="products\mouldingmachines.jpg" alt="Laser Accessories" style="width:100%; height:auto; display:block; object-fit:cover;">
+</div>
+    
 
     <section id="laser-cutting" class="products">
         <h2 class="form-title">Glorystar Laser</h2>
