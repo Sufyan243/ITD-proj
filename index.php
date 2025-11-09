@@ -1988,7 +1988,7 @@ p {
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content container">
-            <h1 class="hero-title">Pakistan's Leading Laser & CNC Machine Supplier</h1>
+            <h1 class="hero-title">Pakistan's Leading CNC Machine Supplier</h1>
             <p class="hero-subtitle">Performance. Precision. Perfection.</p>
             <a href="#request-quote" class="btn-hero-cta" >Request a Quote</a>
         </div>
@@ -2036,9 +2036,33 @@ p {
                 <img src="products\sls1nobg.png" alt="img" class="img-fluid">
             </div>
             <div class="tm-text">
-                <h3 class="tm-heading">SS Machinery Injection Moulding Machine (SSF720-K5)</h3>
+                <h3 class="tm-heading">Youzu, Hwamda & SS Machinery Injection Molding Machines</h3>
                 <p class="tm-desc">Precision-engineered 720 kN clamp-force injection moulding machine delivering high-repeatability parts up to 100 g with superior cycle-stability and industrial durability.</p>
                 <a href="injectionmoulding.php" class="tm-btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- ==== ROW 4 ==== -->
+        <div class="tm-row">
+            <div class="tm-img">
+                <img src="products/hwamdaInj.jpg" alt="HWAMDA High Speed Injection Molding Machine" class="img-fluid">
+            </div>
+            <div class="tm-text">
+                <h3 class="tm-heading">HWAMDA High Speed Injection Molding Machines</h3>
+                <p class="tm-desc">Advanced high-speed injection molding technology delivering exceptional productivity, precision, and energy efficiency for demanding manufacturing applications.</p>
+                <a href="injectionmoulding.php" class="tm-btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- ==== ROW 5 ==== -->
+        <div class="tm-row">
+            <div class="tm-img">
+                <img src="products/Harsle-Nc-Press-Brake.jpg" alt="HARSLE NC Press Brake Machine" class="img-fluid">
+            </div>
+            <div class="tm-text">
+                <h3 class="tm-heading">HARSLE NC Press Brake Machines</h3>
+                <p class="tm-desc">Precision sheet metal bending solutions featuring advanced NC control systems for accurate, repeatable bends in various materials and thicknesses.</p>
+                <a href="#request-quote" class="tm-btn">Learn More</a>
             </div>
         </div>
 
@@ -2147,148 +2171,35 @@ p {
                     <div class="partner-badge" style="background-color:#8C1927 !important;">Authorized Partner</div>
                     <p>At SYIL, our mission is to design and manufacture top-quality, affordable CNC machines tailored for small business owners. We are dedicated to providing accessible and reliable machinery that empowers entrepreneurs to thrive in their industries.</p>
                 </div>
+                <div class="card1 partner-card-enhanced">
+                    <div class="partner-logo-container">
+                        <img src="products/SallenLogo.jpeg" alt="SALLEN Logo">
+                    </div>
+                    <h3>SALLEN</h3>
+                    <div class="partner-badge" style="background-color:#8C1927 !important;">Trusted Partner</div>
+                    <p>SALLEN is a renowned manufacturer of precision industrial machinery, delivering innovative solutions for manufacturing excellence with cutting-edge technology and reliable performance.</p>
+                </div>
+                <div class="card1 partner-card-enhanced">
+                    <div class="partner-logo-container">
+                        <img src="products/hwamdaLogo.jpeg" alt="HWAMDA Logo">
+                    </div>
+                    <h3>HWAMDA</h3>
+                    <div class="partner-badge" style="background-color:#8C1927 !important;">Official Partner</div>
+                    <p>HWAMDA specializes in high-speed injection molding machines, providing advanced manufacturing solutions with superior precision, efficiency, and reliability for industrial applications.</p>
+                </div>
+                <div class="card1 partner-card-enhanced">
+                    <div class="partner-logo-container">
+                        <img src="products/harsleLogo.jpeg" alt="HARSLE Logo">
+                    </div>
+                    <h3>HARSLE</h3>
+                    <div class="partner-badge" style="background-color:#8C1927 !important;">Authorized Dealer</div>
+                    <p>HARSLE is a leading manufacturer of sheet metal processing equipment, offering comprehensive solutions including press brakes, shears, and forming machines for metalworking industries.</p>
+                </div>
             </div>
         </div>
     </section>
     
-    <!-- Testimonials Section -->
-    <section class="testimonials-section center-section">
-        <div class="container">
-            <h2 class="section-title testimonials-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Join hundreds of satisfied customers across Pakistan</p>
-            
-            <div class="swiper testimonials-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">ITD provided us with an HSG laser cutting machine that transformed our production capabilities. The precision and speed are exceptional, and their after-sales support is outstanding.</p>
-                            <div class="testimonial-client">
-                                <img class="testimonial-photo" src="testimonial.png" alt="Ahmed Hassan" style="width: 60px !important; height: 60px !important;">
-                                <div class="testimonial-details">
-                                    <h4 class="testimonial-name">Ahmed Hassan</h4>
-                                    <p class="testimonial-company">Steel Fabrication Ltd, Karachi</p>
-                                    <div class="testimonial-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">We've been working with ITD for over 5 years. Their SYIL CNC machines are reliable, and the team's technical expertise has been invaluable to our operations.</p>
-                            <div class="testimonial-client">
-                                <img class="testimonial-photo" src="testimonial.png" alt="Fatima Khan" style="width: 60px !important; height: 60px !important;">
-                                <div class="testimonial-details">
-                                    <h4 class="testimonial-name">Fatima Khan</h4>
-                                    <p class="testimonial-company">Precision Engineering, Lahore</p>
-                                    <div class="testimonial-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">The injection moulding machine from ITD exceeded our expectations. Professional installation, comprehensive training, and excellent ROI within the first year.</p>
-                            <div class="testimonial-client">
-                                <img class="testimonial-photo" src="testimonial.png" alt="Imran Malik" style="width: 60px !important; height: 60px !important;">
-                                <div class="testimonial-details">
-                                    <h4 class="testimonial-name">Imran Malik</h4>
-                                    <p class="testimonial-company">Plastic Industries, Faisalabad</p>
-                                    <div class="testimonial-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
-        <script>
-            // Mobile menu toggle
-const navToggle = document.querySelector('.nav-toggle');
-const mobilePanel = document.getElementById('mobile-panel');
-const navOverlay = document.querySelector('.nav-overlay');
-const mobileClose = document.querySelector('.mobile-close');
 
-function openMenu() {
-  navToggle.setAttribute('aria-expanded', 'true');
-  mobilePanel.setAttribute('aria-hidden', 'false');
-  navOverlay.classList.add('active');
-  document.body.classList.add('nav-open');
-}
-
-function closeMenu() {
-  navToggle.setAttribute('aria-expanded', 'false');
-  mobilePanel.setAttribute('aria-hidden', 'true');
-  navOverlay.classList.remove('active');
-  document.body.classList.remove('nav-open');
-}
-
-navToggle.addEventListener('click', openMenu);
-mobileClose.addEventListener('click', closeMenu);
-navOverlay.addEventListener('click', closeMenu);
-            document.addEventListener('DOMContentLoaded', function() {
-                new Swiper('.testimonials-swiper', {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    loop: true,
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
-                    },
-                    breakpoints: {
-                        768: {
-                            slidesPerView: 2
-                        },
-                        1024: {
-                            slidesPerView: 3
-                        }
-                    }
-                });
-            });
-        </script>
-    </section>
     
     <section class="quote quote-modern">
         <form id="request-quote" class="quote-form" action="submit_quote.php" method="post">

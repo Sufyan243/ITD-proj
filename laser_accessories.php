@@ -351,7 +351,7 @@ include("includes/header.php");
     </a>
 
    <div class="position-relative hsg-about-video">
-  <img src="products/laseraccessories.jpg" alt="Laser Accessories" style="width:100%; height:auto; display:block; object-fit:cover;">
+  <img src="products/lasercuttingbg.jpg" alt="Laser Accessories" style="width:100%; height:auto; display:block; object-fit:cover;">
 </div>
 
 
@@ -378,7 +378,7 @@ include("includes/header.php");
           <div class="product-list">
   <?php
   include 'db_connection.php';
-  $category = 'mold'; // category column in your cards table
+  $category = 'laser_accessories'; // category column in your cards table
   $result = mysqli_query($conn, "SELECT * FROM cards WHERE category='$category' ORDER BY id DESC");
 
   if (mysqli_num_rows($result) > 0) {

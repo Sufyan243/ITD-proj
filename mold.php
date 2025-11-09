@@ -408,16 +408,13 @@ include("includes/header.php");
         <img src="wp icon.png" alt="Chat with us on WhatsApp">
     </a>
     <div class="position-relative hsg-about-video">
-  <img src="products\mouldingmachines.jpg" alt="Laser Accessories" style="width:100%; height:auto; display:block; object-fit:cover;">
+  <img src="products\molds.jpg" alt="Mold Accessories" style="width:100%; height:auto; display:block; object-fit:cover;">
 </div>
     
 
-    <section id="laser-cutting" class="products">
-        <h2 class="form-title">Glorystar Laser</h2>
-        <p class="model-title-p">Glorystar Laser is a leading high-tech enterprise specializing in the research,
-            development, and manufacturing of advanced fiber laser cutting machines. With over 20 years of innovation,
-            the company provides intelligent metal cutting and automated production solutions used across more than 100
-            countries.</p>
+    <section id="mold-accessories" class="products">
+        <h2 class="form-title">Mold Accessories</h2>
+        <p class="model-title-p">Comprehensive range of high-quality mold accessories and components designed for precision injection molding applications. Our mold bases, inserts, ejector systems, and specialized components ensure optimal performance and durability for your manufacturing needs.</p>
         <div class="contact-btns-container">
             <a href="tel:03008227711" class="contact-btn btn-call">
                 📞 Call

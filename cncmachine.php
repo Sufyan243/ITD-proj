@@ -449,7 +449,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <img src="wp icon.png" alt="Chat with us on WhatsApp">
 </a>
    <div class="position-relative hsg-about-video">
-  <img src="products\cncmachine.jpg" alt="Laser Accessories" style="width:100%; height:50%; display:block; object-fit:cover;">
+  <img src="New folder\x7\x7.jpg" alt="SYIL CNC Machines" style="width:100%; height:50%; display:block; object-fit:cover;">
 </div>
 
     <section id="injection" class="products">
